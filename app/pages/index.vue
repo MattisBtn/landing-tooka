@@ -1,5 +1,20 @@
 <template>
-  <div class="min-h-screen flex flex-col relative overflow-hidden">
+  <div class="min-h-screen flex flex-col relative overflow-hidden" style="cursor: none;">
+    <!-- Custom Cursor -->
+    <motion.div
+      class="fixed pointer-events-none z-50 w-8 h-8 rounded-full border-2 border-indigo-500/50 bg-indigo-500/20 backdrop-blur-sm"
+      :style="{
+        x: cursorXSpring,
+        y: cursorYSpring,
+        scale: cursorScaleSpring,
+      }" :initial="{ scale: 0 }" :animate="{ scale: 1 }" :transition="{ duration: 0.3 }" />
+
+    <!-- Cursor Trail -->
+    <motion.div class="fixed pointer-events-none z-40 w-2 h-2 rounded-full bg-indigo-400/30" :style="{
+      x: trailXSpring,
+      y: trailYSpring,
+    }" />
+
     <!-- Background Elements -->
     <div class="absolute inset-0 -z-10">
       <!-- Gradient Background -->
@@ -239,7 +254,7 @@
 </template>
 
 <script lang="ts" setup>
-import { motion, useScroll, useTransform } from 'motion-v'
+import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'motion-v'
 
 // Scroll animations
 const { scrollYProgress } = useScroll()
@@ -247,6 +262,53 @@ const shapesY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
 const shapes2Y = useTransform(scrollYProgress, [0, 1], ['0%', '20%'])
 const shapes3Y = useTransform(scrollYProgress, [0, 1], ['0%', '-10%'])
 const shapes4Y = useTransform(scrollYProgress, [0, 1], ['0%', '-15%'])
+
+// Custom cursor
+const cursorX = useMotionValue(-100)
+const cursorY = useMotionValue(-100)
+const cursorScale = useMotionValue(1)
+const springConfig = { damping: 25, stiffness: 700 }
+const trailConfig = { damping: 50, stiffness: 200 }
+const cursorXSpring = useSpring(cursorX, springConfig)
+const cursorYSpring = useSpring(cursorY, springConfig)
+const cursorScaleSpring = useSpring(cursorScale, springConfig)
+const trailXSpring = useSpring(cursorX, trailConfig)
+const trailYSpring = useSpring(cursorY, trailConfig)
+
+// Mouse tracking
+const moveCursor = (e: MouseEvent) => {
+  cursorX.set(e.clientX - 16)
+  cursorY.set(e.clientY - 16)
+}
+
+const handleMouseEnter = () => {
+  cursorScale.set(1.5)
+}
+
+const handleMouseLeave = () => {
+  cursorScale.set(1)
+}
+
+onMounted(() => {
+  document.addEventListener('mousemove', moveCursor)
+
+  // Add hover effects to interactive elements
+  const interactiveElements = document.querySelectorAll('button, a, input, [role="button"]')
+  interactiveElements.forEach(el => {
+    el.addEventListener('mouseenter', handleMouseEnter)
+    el.addEventListener('mouseleave', handleMouseLeave)
+  })
+})
+
+onUnmounted(() => {
+  document.removeEventListener('mousemove', moveCursor)
+
+  const interactiveElements = document.querySelectorAll('button, a, input, [role="button"]')
+  interactiveElements.forEach(el => {
+    el.removeEventListener('mouseenter', handleMouseEnter)
+    el.removeEventListener('mouseleave', handleMouseLeave)
+  })
+})
 
 // SEO Meta tags avec Nuxt SEO
 useSeoMeta({
