@@ -39,7 +39,7 @@
                 <motion.div :initial="{ opacity: 0, scale: 0.8 }" :animate="{ opacity: 1, scale: 1 }"
                     :transition="{ duration: 0.6, delay: 0.2, ease: 'easeOut' }">
                     <h1 class="text-8xl md:text-9xl font-bold text-gray-900 dark:text-white tracking-tight">
-                        {{ error.statusCode }}
+                        {{ error?.statusCode || 500 }}
                     </h1>
                 </motion.div>
 
@@ -57,10 +57,11 @@
                 <!-- Action Buttons -->
                 <motion.div class="flex flex-col sm:flex-row gap-4 justify-center" :initial="{ opacity: 0, y: 30 }"
                     :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 0.8, delay: 0.6, ease: 'easeOut' }">
-                    <Button variant="primary" size="lg" leading-icon="i-lucide-home" @click="handleError">
+                    <Button variant="primary" size="lg" leading-icon="i-lucide-home" type="button" @click="handleError">
                         Retour à l'accueil
                     </Button>
-                    <Button variant="outline" size="lg" leading-icon="i-lucide-arrow-left" @click="goBack">
+                    <Button variant="outline" size="lg" leading-icon="i-lucide-arrow-left" type="button"
+                        @click="goBack">
                         Retour en arrière
                     </Button>
                 </motion.div>
