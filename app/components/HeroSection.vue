@@ -106,7 +106,7 @@ interface Props {
     isLoading: boolean
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const colorMode = useColorMode()
 const isDark = computed(() => colorMode.value === 'dark')

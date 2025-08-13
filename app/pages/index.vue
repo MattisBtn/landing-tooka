@@ -106,13 +106,6 @@ useSeoMeta({
 // Color mode management
 const colorMode = useColorMode()
 
-// OG Image personnalisé
-defineOgImageComponent('TookaOgImage', {
-  title: 'Créez Plus. Livrez Mieux.',
-  description: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale. Gérez vos projets clients sans stress, avec style.',
-  colorMode: colorMode.value === 'dark' ? 'dark' : 'light'
-})
-
 // Schema.org structured data
 useSchemaOrg([
   defineWebSite({
