@@ -3,11 +3,10 @@
     <!-- Page Loader -->
     <PageLoader :is-loading="isLoading" :loading-progress="loadingProgress" />
 
-    <motion.div v-show="!isLoading" class="min-h-screen flex flex-col relative overflow-hidden md:cursor-none"
+    <motion.div v-show="!isLoading" class="min-h-screen flex flex-col relative overflow-hidden"
       :initial="{ opacity: 0, scale: 0.95 }" :animate="{ opacity: 1, scale: 1 }"
       :transition="{ duration: 1, delay: 0.5, ease: 'easeOut' }">
-      <!-- Custom Cursor -->
-      <CustomCursor :cursor-x="cursorX" :cursor-y="cursorY" :cursor-scale="cursorScale" />
+
 
       <!-- Background Elements -->
       <BackgroundElements :scroll-y-progress="scrollYProgress" />
@@ -59,25 +58,6 @@ const { scrollYProgress } = useScroll()
 const isLoading = ref(true)
 const loadingProgress = useMotionValue(0)
 
-// Custom cursor
-const cursorX = useMotionValue(-100)
-const cursorY = useMotionValue(-100)
-const cursorScale = useMotionValue(1)
-
-// Mouse tracking
-const moveCursor = (e: MouseEvent) => {
-  cursorX.set(e.clientX - 16)
-  cursorY.set(e.clientY - 16)
-}
-
-const handleMouseEnter = () => {
-  cursorScale.set(1.5)
-}
-
-const handleMouseLeave = () => {
-  cursorScale.set(1)
-}
-
 // Loading sequence
 const startLoading = async () => {
   // Simulate loading phases
@@ -109,27 +89,8 @@ const startLoading = async () => {
 }
 
 onMounted(() => {
-  document.addEventListener('mousemove', moveCursor)
-
-  // Add hover effects to interactive elements
-  const interactiveElements = document.querySelectorAll('button, a, input, [role="button"]')
-  interactiveElements.forEach(el => {
-    el.addEventListener('mouseenter', handleMouseEnter)
-    el.addEventListener('mouseleave', handleMouseLeave)
-  })
-
   // Start loading sequence
   startLoading()
-})
-
-onUnmounted(() => {
-  document.removeEventListener('mousemove', moveCursor)
-
-  const interactiveElements = document.querySelectorAll('button, a, input, [role="button"]')
-  interactiveElements.forEach(el => {
-    el.removeEventListener('mouseenter', handleMouseEnter)
-    el.removeEventListener('mouseleave', handleMouseLeave)
-  })
 })
 
 // SEO Meta tags avec Nuxt SEO
