@@ -30,6 +30,13 @@ export default defineNuxtConfig({
     },
   },
 
+  // OG Image configuration
+  ogImage: {
+    componentOptions: {
+      global: true,
+    },
+  },
+
   // Image optimization
   image: {
     quality: 80,

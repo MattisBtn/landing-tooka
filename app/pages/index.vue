@@ -102,11 +102,19 @@ useSeoMeta({
   ogDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.',
   ogType: 'website',
   ogUrl: 'https://tooka.io',
-  ogImage: '/images/logo-light.png',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Tooka - Créez plus. Livrez mieux.',
-  twitterDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.',
-  twitterImage: '/images/logo-light.png'
+  twitterDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.'
+})
+
+// Color mode management
+const colorMode = useColorMode()
+
+// OG Image personnalisé
+defineOgImageComponent('TookaOgImage', {
+  title: 'Créez Plus. Livrez Mieux.',
+  description: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale. Gérez vos projets clients sans stress, avec style.',
+  colorMode: colorMode.value === 'dark' ? 'dark' : 'light'
 })
 
 // Schema.org structured data
@@ -122,9 +130,6 @@ useSchemaOrg([
     logo: '/images/logo-light.png'
   })
 ])
-
-// Color mode management
-const colorMode = useColorMode()
 
 const isDark = computed({
   get() {
