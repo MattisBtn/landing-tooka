@@ -98,10 +98,6 @@ useSeoMeta({
   title: 'Tooka - Créez plus. Livrez mieux.',
   description: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale. Gérez vos projets clients sans stress, avec style.',
   keywords: 'créatifs, gestion de projets, plateforme, design, freelance, agence',
-  ogTitle: 'Tooka - Créez plus. Livrez mieux.',
-  ogDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.',
-  ogType: 'website',
-  ogUrl: 'https://tooka.io',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Tooka - Créez plus. Livrez mieux.',
   twitterDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.'

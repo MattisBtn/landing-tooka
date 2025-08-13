@@ -35,7 +35,6 @@
             :transition="{ duration: 0.5, delay: 4.8, ease: 'easeOut' }" :while-hover="{ scale: 1.1 }"
             :while-tap="{ scale: 0.95 }">
             <UIcon name="i-lucide-linkedin" class="w-4 h-4" />
-            <UIcon name="i-lucide-instagram" class="ml-2 w-4 h-4" />
         </motion.a>
     </motion.div>
 </template>
@@ -47,7 +46,7 @@ interface Props {
     isLoading: boolean
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 // Real avatars from the avatars folder
 const avatars = [
