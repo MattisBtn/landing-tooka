@@ -3,6 +3,3 @@ Allow: /
 
 # Sitemap
 Sitemap: https://tooka.io/sitemap.xml
-
-# Crawl-delay
-Crawl-delay: 1
