@@ -1,28 +1,39 @@
 <template>
-    <div class="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-lg border" role="status"
-        :aria-label="`Statut: ${statusText}`" :class="[
-            // Background - gradient dark, solid gray light
-            'bg-gray-100 dark:bg-[linear-gradient(259deg,#242424,#101010)]',
-            // Border
-            'border-gray-200/20 dark:border-gray-700/30',
+    <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full font-medium text-xs sm:gap-2 sm:px-4 sm:py-2 sm:text-sm transition-all duration-300"
+        role="status" :aria-label="`Statut: ${statusText}`" :class="[
+            // Base styles
+            'relative overflow-hidden',
+            // Background and border
+            'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm',
+            'border border-gray-200/60 dark:border-gray-700/60',
+            'shadow-sm hover:shadow-md',
             // Size variants
             sizeClasses[size],
             // Custom classes
             customClass
         ]">
-        <!-- Pulsing diode -->
-        <motion.div class="flex-shrink-0 w-2 h-2 rounded-full bg-indigo-500" aria-hidden="true" :animate="{
-            opacity: [0.4, 1, 0.4],
-            scale: [0.8, 1, 0.8]
-        }" :transition="{
+        <!-- Animated background gradient -->
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+
+        <!-- Status indicator -->
+        <div class="relative flex items-center gap-2">
+            <!-- Animated dot -->
+            <motion.div
+                class="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 shadow-sm"
+                :animate="{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.7, 1, 0.7]
+                }" :transition="{
                 duration: 2,
                 ease: 'easeInOut',
                 repeat: Infinity
-            }" />
+            }" aria-hidden="true" />
 
-        <!-- Text content -->
-        <div class="flex-shrink-0">
-            <slot />
+            <!-- Text content -->
+            <span class="relative font-medium tracking-wide">
+                <slot />
+            </span>
         </div>
     </div>
 </template>
@@ -47,9 +58,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 // Size classes mapping
 const sizeClasses = {
-    sm: 'text-xs px-2 py-1 gap-2',
-    md: 'text-sm px-3 py-1.5 gap-2.5',
-    lg: 'text-base px-4 py-2 gap-3'
+    sm: 'text-xs px-2 py-1 gap-1 sm:px-3 sm:py-1.5 sm:gap-1.5',
+    md: 'text-xs px-3 py-1.5 gap-1.5 sm:text-sm sm:px-4 sm:py-2 sm:gap-2',
+    lg: 'text-sm px-4 py-2 gap-2 sm:text-base sm:px-5 sm:py-2.5 sm:gap-2.5'
 }
 
 const { statusText } = toRefs(props)
