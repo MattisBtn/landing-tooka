@@ -102,11 +102,11 @@ useSeoMeta({
   ogDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.',
   ogType: 'website',
   ogUrl: 'https://tooka.io',
-  ogImage: '/images/logo2-dark.png',
+  ogImage: '/images/logo-light.png',
   twitterCard: 'summary_large_image',
   twitterTitle: 'Tooka - Créez plus. Livrez mieux.',
   twitterDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.',
-  twitterImage: '/images/logo2-dark.png'
+  twitterImage: '/images/logo-light.png'
 })
 
 // Schema.org structured data
@@ -119,7 +119,7 @@ useSchemaOrg([
   defineOrganization({
     name: 'Tooka',
     url: 'https://tooka.io',
-    logo: '/images/logo2-dark.png'
+    logo: '/images/logo-light.png'
   })
 ])
 
