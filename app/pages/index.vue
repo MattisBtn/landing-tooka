@@ -3,7 +3,7 @@
     <!-- Page Loader -->
     <PageLoader :is-loading="isLoading" :loading-progress="loadingProgress" />
 
-    <motion.div v-show="!isLoading" class="min-h-screen flex flex-col relative overflow-hidden" style="cursor: none;"
+    <motion.div v-show="!isLoading" class="min-h-screen flex flex-col relative overflow-hidden md:cursor-none"
       :initial="{ opacity: 0, scale: 0.95 }" :animate="{ opacity: 1, scale: 1 }"
       :transition="{ duration: 1, delay: 0.5, ease: 'easeOut' }">
       <!-- Custom Cursor -->

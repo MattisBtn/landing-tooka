@@ -1,15 +1,15 @@
 <template>
-    <!-- Custom Cursor -->
+    <!-- Custom Cursor - Desktop only -->
     <motion.div
-        class="fixed pointer-events-none z-50 w-8 h-8 rounded-full border-2 border-indigo-500/50 bg-indigo-500/20 backdrop-blur-sm"
+        class="fixed pointer-events-none z-50 w-8 h-8 rounded-full border-2 border-indigo-500/50 bg-indigo-500/20 backdrop-blur-sm hidden md:block"
         :style="{
             x: cursorXSpring,
             y: cursorYSpring,
             scale: cursorScaleSpring,
         }" :initial="{ scale: 0 }" :animate="{ scale: 1 }" :transition="{ duration: 0.3 }" />
 
-    <!-- Cursor Trail -->
-    <motion.div class="fixed pointer-events-none z-40 w-2 h-2 rounded-full bg-indigo-400/30" :style="{
+    <!-- Cursor Trail - Desktop only -->
+    <motion.div class="fixed pointer-events-none z-40 w-2 h-2 rounded-full bg-indigo-400/30 hidden md:block" :style="{
         x: trailXSpring,
         y: trailYSpring,
     }" />
