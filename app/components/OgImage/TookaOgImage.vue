@@ -39,8 +39,7 @@
                     En toute sérénité.
                 </p>
                 <p class="text-lg text-gray-600 dark:text-gray-400 mt-6 max-w-2xl leading-relaxed">
-                    {{ description || 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.
-                    Gérez vos projets clients sans stress, avec style.' }}
+                    {{ description }}
                 </p>
             </div>
 
