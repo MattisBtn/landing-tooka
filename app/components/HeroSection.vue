@@ -115,21 +115,35 @@ const isDark = computed(() => colorMode.value === 'dark')
 const email = ref('')
 const loading = ref(false)
 
+const router = useRouter()
+
 const joinWaitlist = async () => {
     if (!email.value) return
 
     loading.value = true
 
     try {
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1000))
+        await $fetch<{ success: boolean; message: string }>('/api/klaviyo/subscribe', {
+            method: 'POST',
+            body: { email: email.value }
+        })
 
-        // Show success message
-        alert('Parfait ! Vous serez parmi les premiers à découvrir Tooka.')
-        email.value = ''
-    } catch (error) {
+        // Redirect to thank you page
+        await router.push('/thank-you')
+    } catch (error: unknown) {
         console.error('Error joining waitlist:', error)
-        alert('Une erreur est survenue. Veuillez réessayer.')
+
+        const toast = useToast()
+        const errorMessage = error && typeof error === 'object' && 'data' in error
+            ? (error.data as { statusMessage?: string })?.statusMessage
+            : 'Une erreur est survenue. Veuillez réessayer.'
+
+        toast.add({
+            title: 'Erreur lors de l\'inscription',
+            description: errorMessage,
+            color: 'error',
+            icon: 'i-lucide-alert-circle'
+        })
     } finally {
         loading.value = false
     }

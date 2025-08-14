@@ -50,4 +50,10 @@ export default defineNuxtConfig({
       xxl: 1536,
     },
   },
+
+  // Runtime config for environment variables
+  runtimeConfig: {
+    klaviyoPrivateKey: process.env.KLAVIYO_PRIVATE_KEY,
+    klaviyoListId: process.env.KLAVIYO_LIST_ID,
+  },
 });
