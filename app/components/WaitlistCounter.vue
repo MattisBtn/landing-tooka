@@ -13,7 +13,7 @@
                         {{ displayCount }}ème
                     </motion.span>
                 </motion.span>
-                <span class="ml-1">créatif inscrit</span>
+                <span>créatif inscrit</span>
             </span>
         </div>
     </motion.div>

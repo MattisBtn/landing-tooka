@@ -93,7 +93,7 @@
                 <!-- Live Counter -->
                 <motion.div class="pt-6 md:pt-8" :initial="{ opacity: 0 }" :animate="{ opacity: 1 }"
                     :transition="{ duration: 0.8, delay: 1.0, ease: 'easeOut' }">
-                    <WaitlistCounter :initial-count="128" />
+                    <WaitlistCounter :initial-count="36" />
                 </motion.div>
 
                 <!-- Social Proof -->
