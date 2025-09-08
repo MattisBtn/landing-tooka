@@ -80,12 +80,25 @@
                         color="neutral" variant="outline" size="lg" :ui="{
                             base: 'h-12 sm:h-14 text-sm sm:text-base placeholder:text-gray-400 dark:placeholder:text-gray-500'
                         }" aria-label="Adresse email pour rejoindre la liste d'attente" required />
-                    <Button type="submit" variant="glass" size="lg" :loading="loading"
+                    <Button type="submit" variant="glass" size="lg" :loading="loading" :disabled="!consent"
                         class="h-12 sm:h-14 text-sm sm:text-base" trailing-icon="i-lucide-arrow-up-right"
                         :aria-label="loading ? 'Inscription en cours...' : 'Rejoindre la liste d\'attente'">
                         <span v-if="!loading">Rejoindre la liste</span>
                         <span v-else>Inscription...</span>
                     </Button>
+                </motion.div>
+
+                <motion.div class="flex items-start text-left" :initial="{ opacity: 0, y: 8 }"
+                    :animate="!isLoading ? { opacity: 1, y: 0 } : { opacity: 0, y: 8 }"
+                    :transition="{ duration: 0.5, delay: 3.1, ease: 'easeOut' }">
+                    <UCheckbox v-model="consent" name="consent" aria-describedby="consent-help"
+                        :aria-label="'J\'accepte de recevoir des emails de Tooka'">
+                        <template #label>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">J'accepte de recevoir des emails
+                                de Tooka et j'ai lu la <a href="#" class="underline">politique de
+                                    confidentialité</a>.</span>
+                        </template>
+                    </UCheckbox>
                 </motion.div>
 
                 <!-- Trust indicator -->
@@ -114,18 +127,19 @@ const isDark = computed(() => colorMode.value === 'dark')
 // Form state
 const email = ref('')
 const loading = ref(false)
+const consent = ref(false)
 
 const router = useRouter()
 
 const joinWaitlist = async () => {
-    if (!email.value) return
+    if (!email.value || !consent.value) return
 
     loading.value = true
 
     try {
         await $fetch<{ success: boolean; message: string }>('/api/klaviyo/subscribe', {
             method: 'POST',
-            body: { email: email.value }
+            body: { email: email.value, consent: consent.value }
         })
 
         // Redirect to thank you page
