@@ -17,7 +17,7 @@
         <motion.span class="text-sm text-gray-600 dark:text-gray-400" :initial="{ opacity: 0, x: -10 }"
             :animate="!isLoading ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }"
             :transition="{ duration: 0.5, delay: animationDelay + 0.6, ease: 'easeOut' }">
-            Déjà <strong class="text-gray-900 dark:text-white">36</strong> créatifs inscrits
+            Déjà <strong class="text-gray-900 dark:text-white">124</strong> créatifs inscrits
         </motion.span>
 
         <!-- Pipe -->

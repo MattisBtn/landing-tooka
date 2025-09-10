@@ -27,7 +27,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-    initialCount: 36
+    initialCount: 124
 })
 
 const count = ref(props.initialCount)
