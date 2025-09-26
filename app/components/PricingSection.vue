@@ -53,8 +53,13 @@
             <span class="pointer-events-none absolute -top-14 left-1/2 h-24 w-64 -translate-x-1/2 rounded-full bg-white/40 blur-3xl"></span>
             <span class="pointer-events-none absolute -bottom-6 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-full bg-black/10 blur-2xl"></span>
             <div class="relative z-10 p-6 flex flex-col items-center text-center gap-4">
-              <div class="h-12 w-12 rounded-xl bg-slate-900 text-white grid place-items-center ring-1 ring-white/10 shadow-[0_8px_16px_-4px_rgba(0,0,0,0.35)]">
-                <UIcon :name="plan.icon" class="h-5 w-5" aria-hidden="true" />
+              <div class="h-24 md:h-28 w-full flex items-center justify-center">
+                <NuxtImg
+                  :src="planImage(plan.key)"
+                  :alt="`Illustration ${plan.name}`"
+                  sizes="128px md:160px"
+                  class="h-24 md:h-28 w-auto object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)]"
+                />
               </div>
               <div>
                 <h3 class="text-xl font-semibold text-slate-900">{{ plan.name }}</h3>
@@ -97,7 +102,7 @@ type BillingCycle = 'monthly' | 'yearly'
 type PricingPlan = {
   key: string
   name: string
-  icon: string
+  image: string
   target: string
   monthly: number
   yearlyPerMonth: number
@@ -110,7 +115,7 @@ const plans: PricingPlan[] = [
   {
     key: 'starter',
     name: 'Starter',
-    icon: 'i-heroicons-rocket-launch-20-solid',
+    image: '/images/pricing/starter.png',
     target: 'Pour démarrer seul',
     monthly: 15,
     yearlyPerMonth: 12,
@@ -126,7 +131,7 @@ const plans: PricingPlan[] = [
   {
     key: 'pro',
     name: 'Pro',
-    icon: 'i-heroicons-sparkles-20-solid',
+    image: '/images/pricing/pro.png',
     target: 'Pour créatifs réguliers',
     monthly: 29,
     yearlyPerMonth: 24,
@@ -142,7 +147,7 @@ const plans: PricingPlan[] = [
   {
     key: 'pro-plus',
     name: 'Pro+',
-    icon: 'i-heroicons-bolt-20-solid',
+    image: '/images/pricing/pro-plus.png',
     target: 'Pour équipes exigeantes',
     monthly: 49,
     yearlyPerMonth: 39,
@@ -156,6 +161,11 @@ const plans: PricingPlan[] = [
     ]
   }
 ]
+
+function planImage(key: string) {
+  const found = plans.find(p => p.key === key)
+  return found?.image || ''
+}
 
 function displayPrice(plan: PricingPlan) {
   const value = billingCycle.value === 'monthly' ? plan.monthly : plan.yearlyPerMonth
