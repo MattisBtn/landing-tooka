@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@vueuse/nuxt",
     "@nuxtjs/seo",
-    "motion-v/nuxt",
+    "@vueuse/motion/nuxt"
   ],
 
   css: ["~/assets/css/main.css"],
