@@ -23,7 +23,7 @@
             :aria-expanded="openIndex === idx ? 'true' : 'false'"
             @click="toggle(idx)"
           >
-            <span class="text-slate-900 font-semibold">{{ item.q }}</span>
+            <span class="text-slate-900 text-sm md:text-base font-semibold">{{ item.q }}</span>
             <UIcon
               :name="openIndex === idx ? 'i-heroicons-minus-small' : 'i-heroicons-plus-small'"
               class="h-5 w-5 text-slate-900"
@@ -39,7 +39,7 @@
             leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-1"
           >
-            <div v-show="openIndex === idx" class="relative z-10 px-5 pb-5 pt-0 text-slate-600">
+            <div v-show="openIndex === idx" class="relative text-xs md:text-sm z-10 px-5 pb-5 pt-0 text-slate-600">
               {{ item.a }}
             </div>
           </transition>
@@ -56,7 +56,6 @@ const faqs: FaqItem[] = [
   { q: 'Puis-je annuler à tout moment ?', a: 'Oui, la résiliation est possible en un clic depuis votre espace.' },
   { q: 'Proposez-vous un essai gratuit ?', a: "Oui, vous pouvez tester Tooka gratuitement avant de vous abonner." },
   { q: 'Comment fonctionnent les paiements de galerie ?', a: 'Vous définissez acompte/solde; le client règle directement sur la galerie.' },
-  { q: 'Puis-je inviter des collaborateurs ?', a: 'Oui, selon le plan, ajoutez des membres et gérez les permissions.' },
   { q: 'Mes données sont-elles sécurisées ?', a: 'Nous chiffrons les données et appliquons des politiques de sécurité strictes.' }
 ]
 
