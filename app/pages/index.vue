@@ -27,6 +27,8 @@
           </div>
         </div>
       </section>
+
+      <ProblemsSection />
     </main>
   </div>
 </template>
