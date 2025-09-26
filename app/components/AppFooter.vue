@@ -27,8 +27,6 @@
               <h3 class="text-xs uppercase tracking-wider text-white/50 mb-3">Légal</h3>
               <ul class="space-y-2 text-sm">
                 <li><NuxtLink to="/legal/mentions" class="hover:text-white/90">Mentions légales</NuxtLink></li>
-                <li><NuxtLink to="/legal/cgu" class="hover:text-white/90">CGU</NuxtLink></li>
-                <li><NuxtLink to="/legal/confidentialite" class="hover:text-white/90">Confidentialité</NuxtLink></li>
               </ul>
             </nav>
           </div>

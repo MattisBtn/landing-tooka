@@ -14,10 +14,42 @@
 
             <nav class="hidden md:flex items-center justify-center flex-1" aria-label="Navigation principale" role="navigation">
               <ul class="flex items-center space-x-8">
-                <li><a href="#problems" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Problèmes</a></li>
-                <li><a href="#features" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Fonctionnalités</a></li>
-                <li><a href="#pricing" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Tarifs</a></li>
-                <li><a href="#faq" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">FAQ</a></li>
+                <li>
+                  <a
+                    href="#problems"
+                    :aria-current="linkIsActive('problems') ? 'page' : undefined"
+                    :class="[baseLinkClasses, linkIsActive('problems') ? activeLinkClasses : hoverLinkClasses]"
+                  >
+                    Problèmes
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#features"
+                    :aria-current="linkIsActive('features') ? 'page' : undefined"
+                    :class="[baseLinkClasses, linkIsActive('features') ? activeLinkClasses : hoverLinkClasses]"
+                  >
+                    Fonctionnalités
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#pricing"
+                    :aria-current="linkIsActive('pricing') ? 'page' : undefined"
+                    :class="[baseLinkClasses, linkIsActive('pricing') ? activeLinkClasses : hoverLinkClasses]"
+                  >
+                    Tarifs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="#faq"
+                    :aria-current="linkIsActive('faq') ? 'page' : undefined"
+                    :class="[baseLinkClasses, linkIsActive('faq') ? activeLinkClasses : hoverLinkClasses]"
+                  >
+                    FAQ
+                  </a>
+                </li>
               </ul>
             </nav>
 
@@ -75,10 +107,30 @@
             class="backdrop-blur-2xl backdrop-saturate-150 bg-white/85 rounded-2xl shadow-2xl shadow-black/10 relative overflow-hidden before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/50 before:via-white/20 before:to-transparent before:pointer-events-none after:absolute after:inset-0 after:rounded-2xl after:border after:border-white/50 after:pointer-events-none"
           >
             <nav id="mobile-nav" class="flex flex-col p-6 space-y-3" aria-label="Navigation mobile" role="navigation">
-              <a href="#problems" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Problèmes</a>
-              <a href="#features" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Fonctionnalités</a>
-              <a href="#pricing" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Tarifs</a>
-              <a href="#faq" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">FAQ</a>
+              <a
+                href="#problems"
+                @click="closeMobileMenu"
+                :aria-current="linkIsActive('problems') ? 'page' : undefined"
+                :class="[baseMobileLinkClasses, linkIsActive('problems') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
+              >Problèmes</a>
+              <a
+                href="#features"
+                @click="closeMobileMenu"
+                :aria-current="linkIsActive('features') ? 'page' : undefined"
+                :class="[baseMobileLinkClasses, linkIsActive('features') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
+              >Fonctionnalités</a>
+              <a
+                href="#pricing"
+                @click="closeMobileMenu"
+                :aria-current="linkIsActive('pricing') ? 'page' : undefined"
+                :class="[baseMobileLinkClasses, linkIsActive('pricing') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
+              >Tarifs</a>
+              <a
+                href="#faq"
+                @click="closeMobileMenu"
+                :aria-current="linkIsActive('faq') ? 'page' : undefined"
+                :class="[baseMobileLinkClasses, linkIsActive('faq') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
+              >FAQ</a>
               <div class="flex flex-col space-y-3 pt-4 border-t border-white/30">
                 <TkButton :to="'#pricing'" variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer">
                   Commencer
@@ -101,6 +153,20 @@ const isClosing = ref(false)
 const showMobileMenu = computed(() => mobileMenuOpen.value || isClosing.value)
 
 const motions = useMotions() as any
+
+const { activeSectionId } = useActiveSection(['problems', 'features', 'pricing', 'faq'])
+
+const baseLinkClasses = 'text-sm font-medium px-2 py-1 rounded-lg transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20'
+const hoverLinkClasses = 'text-slate-700 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40'
+const activeLinkClasses = 'text-slate-900 bg-white/70 backdrop-blur-sm ring-1 ring-white/50'
+
+const baseMobileLinkClasses = 'font-medium py-2 px-3 rounded-lg transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20'
+const hoverMobileLinkClasses = 'text-slate-700 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40'
+const activeMobileLinkClasses = 'text-slate-900 bg-white/70 backdrop-blur-sm ring-1 ring-white/50'
+
+function linkIsActive(id: string) {
+  return activeSectionId.value === id
+}
 
 function onLeaveComplete() {
   isClosing.value = false

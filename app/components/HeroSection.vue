@@ -30,7 +30,7 @@
         <TkButton size="lg" variant="primary" icon="i-heroicons-arrow-right">
           Essayer gratuitement
         </TkButton>
-        <TkButton size="lg" variant="secondary">
+        <TkButton size="lg" variant="secondary" :to="'#features'">
           Voir les fonctionnalités
         </TkButton>
       </div>
