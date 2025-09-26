@@ -30,6 +30,7 @@
 
       <ProblemsSection />
       <FeaturesSection />
+      <PricingSection />
     </main>
   </div>
 </template>
