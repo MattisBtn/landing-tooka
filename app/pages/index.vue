@@ -29,6 +29,7 @@
       </section>
 
       <ProblemsSection />
+      <FeaturesSection />
     </main>
   </div>
 </template>
