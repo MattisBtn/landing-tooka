@@ -1,5 +1,5 @@
 <template>
-  <section id="problems" class="py-16 md:py-20" aria-labelledby="problems-title">
+  <section id="problems" class="scroll-mt-28 py-16 md:py-20" aria-labelledby="problems-title">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="Zéro chaos">Ce que Tooka règle</TkBadge>

@@ -14,16 +14,15 @@
 
             <nav class="hidden md:flex items-center justify-center flex-1" aria-label="Navigation principale" role="navigation">
               <ul class="flex items-center space-x-8">
+                <li><a href="#problems" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Problèmes</a></li>
                 <li><a href="#features" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Fonctionnalités</a></li>
                 <li><a href="#pricing" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Tarifs</a></li>
-                <li><a href="#about" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">À propos</a></li>
-                <li><a href="#testimonials" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Témoignages</a></li>
-                <li><a href="#contact" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Contact</a></li>
+                <li><a href="#faq" class="text-sm text-slate-700 font-medium px-2 py-1 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/60 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">FAQ</a></li>
               </ul>
             </nav>
 
             <div class="hidden md:flex items-center justify-end flex-shrink-0" style="width: 120px;">
-              <TkButton variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer">Commencer</TkButton>
+              <TkButton :to="'#pricing'" variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer">Commencer</TkButton>
             </div>
 
             <div class="md:hidden flex items-center justify-end flex-shrink-0" style="width: 120px;">
@@ -76,13 +75,12 @@
             class="backdrop-blur-2xl backdrop-saturate-150 bg-white/85 rounded-2xl shadow-2xl shadow-black/10 relative overflow-hidden before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-br before:from-white/50 before:via-white/20 before:to-transparent before:pointer-events-none after:absolute after:inset-0 after:rounded-2xl after:border after:border-white/50 after:pointer-events-none"
           >
             <nav id="mobile-nav" class="flex flex-col p-6 space-y-3" aria-label="Navigation mobile" role="navigation">
-              <a href="#features" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Fonctionnalités</a>
-              <a href="#pricing" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Tarifs</a>
-              <a href="#about" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">À propos</a>
-              <a href="#testimonials" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Témoignages</a>
-              <a href="#contact" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Contact</a>
+              <a href="#problems" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Problèmes</a>
+              <a href="#features" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Fonctionnalités</a>
+              <a href="#pricing" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">Tarifs</a>
+              <a href="#faq" @click="closeMobileMenu" class="text-slate-700 font-medium py-2 px-3 rounded-lg transition duration-200 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20">FAQ</a>
               <div class="flex flex-col space-y-3 pt-4 border-t border-white/30">
-                <TkButton variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer">
+                <TkButton :to="'#pricing'" variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer">
                   Commencer
                 </TkButton>
               </div>

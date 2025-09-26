@@ -1,5 +1,5 @@
 <template>
-  <section id="pricing" class="py-16 md:py-20" aria-labelledby="pricing-title">
+  <section id="pricing" class="scroll-mt-28 py-16 md:py-20" aria-labelledby="pricing-title">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="Tarifs">Clairs et adaptés</TkBadge>

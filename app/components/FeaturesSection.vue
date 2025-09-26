@@ -1,5 +1,5 @@
 <template>
-  <section id="features" class="py-16 md:py-20" aria-labelledby="features-title">
+  <section id="features" class="scroll-mt-28 py-16 md:py-20" aria-labelledby="features-title">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="Fonctionnalités">Tout pour livrer</TkBadge>

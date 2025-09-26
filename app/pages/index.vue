@@ -1,38 +1,26 @@
 <template>
-  <div class="min-h-screen bg-slate-50">
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-slate-900 focus:px-3 focus:py-2 focus:rounded-md">Aller au contenu</a>
-    <AppHeader />
+  <div>
+    <HeroSection />
 
-    <!-- Contenu principal -->
-    <main id="main" class="pt-12" role="main" aria-labelledby="hero-title">
-      <HeroSection />
-      
-      <!-- Section image de l'app -->
-      <section class="py-4 md:py-6">
-        <div class="mx-auto max-w-6xl px-6">
-          <div class="relative perspective-midrange">
-            <!-- Wrapper élégant avec ombres et bordures -->
-            <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/10 ring-1 ring-black/5 origin-top transform-gpu" :style="wrapperStyle">
-              <!-- Effet de brillance en haut -->
-              <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none z-10"></div>
-              
-              <!-- Image responsive -->
-              <NuxtImg 
-                src="/images/tooka.png" 
-                alt="Interface de l'application Tooka" 
-                class="w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
+    <section class="py-4 md:py-6">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="relative perspective-midrange">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/10 ring-1 ring-black/5 origin-top transform-gpu" :style="wrapperStyle">
+            <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none z-10"></div>
+            <NuxtImg 
+              src="/images/tooka.png" 
+              alt="Interface de l'application Tooka" 
+              class="w-full h-auto object-cover"
+              loading="lazy"
+            />
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <ProblemsSection />
-      <FeaturesSection />
-      <PricingSection />
-      <FaqSection />
-    </main>
+    <ProblemsSection />
+    <FeaturesSection />
+    <PricingSection />
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <section id="faq" class="py-16 md:py-20" aria-labelledby="faq-title">
+  <section id="faq" class="scroll-mt-28 py-16 md:py-20" aria-labelledby="faq-title">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="FAQ">On répond à vos questions</TkBadge>

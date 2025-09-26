@@ -69,7 +69,7 @@ const props = withDefaults(defineProps<{
 
 const tag = computed(() => props.to ? 'NuxtLink' : (props.href ? 'a' : 'button'))
 
-const baseClasses = 'relative inline-flex items-center justify-center font-semibold rounded-2xl transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden select-none'
+const baseClasses = 'relative inline-flex items-center justify-center font-semibold rounded-2xl transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden select-none cursor-pointer'
 
 const sizeClass = computed(() => {
   if (props.iconOnly) {

@@ -15,6 +15,7 @@
 /* Force light mode - disable dark mode */
 html {
   color-scheme: light;
+  scroll-behavior: smooth;
 }
 
 html.dark {
