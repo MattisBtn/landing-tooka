@@ -80,6 +80,13 @@ export default defineEventHandler(async (event) => {
         body: requestBody,
       }
     );
+    setCookie(event, "tk_merci", "1", {
+      path: "/",
+      sameSite: "lax",
+      secure: process.env.NODE_ENV === "production",
+      httpOnly: false,
+      maxAge: 60 * 5,
+    });
     return {
       success: true,
       message: "Inscription réussie !",
@@ -92,6 +99,13 @@ export default defineEventHandler(async (event) => {
 
     const errorObj = error as { statusCode?: number; statusMessage?: string };
     if (errorObj.statusCode === 409) {
+      setCookie(event, "tk_merci", "1", {
+        path: "/",
+        sameSite: "lax",
+        secure: process.env.NODE_ENV === "production",
+        httpOnly: false,
+        maxAge: 60 * 5,
+      });
       return {
         success: true,
         message: "Vous êtes déjà inscrit à notre liste !",

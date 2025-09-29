@@ -1,140 +1,44 @@
 <template>
-    <div class="min-h-screen flex flex-col relative overflow-hidden">
-        <!-- Background Elements -->
-        <BackgroundElements :scroll-y-progress="scrollYProgress" />
+    <div class="min-h-screen bg-slate-50 flex flex-col items-center justify-center relative px-4">
+        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-black text-white px-4 py-2 rounded z-50">Aller au contenu principal</a>
 
-        <!-- Skip to main content link for accessibility -->
-        <a href="#main-content"
-            class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-black text-white px-4 py-2 rounded z-50">
-            Aller au contenu principal
-        </a>
 
-        <!-- Color Mode Switcher -->
-        <header class="absolute top-4 left-4">
-            <ClientOnly>
-                <UButton :icon="isDark ? 'i-lucide-moon' : 'i-lucide-sun'" color="neutral" variant="ghost" size="sm"
-                    :aria-label="isDark ? 'Passer au mode clair' : 'Passer au mode sombre'" @click="toggleColorMode" />
-                <template #fallback>
-                    <div class="size-8" />
-                </template>
-            </ClientOnly>
-        </header>
+        <main id="main-content" class="w-full max-w-2xl">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/10 ring-1 ring-white/60 backdrop-blur-2xl bg-white/70">
+                <span class="pointer-events-none absolute -top-24 left-1/2 h-56 w-[36rem] -translate-x-1/2 rounded-full bg-white/50 blur-3xl"></span>
+                <div class="relative p-8 md:p-12 text-center space-y-6">
+                    <div class="flex justify-center">
+                        <NuxtImg src="/images/error.png" alt="Illustration d'erreur Tooka" class="h-36 md:h-44 w-auto" loading="lazy" />
+                    </div>
 
-        <!-- Main Content - Centered -->
-        <main id="main-content" class="flex-1 flex items-center justify-center px-4 py-8">
-            <div class="max-w-2xl w-full text-center space-y-8">
-                <!-- Logo -->
-                <motion.div class="flex justify-center" :initial="{ opacity: 0, y: -20 }"
-                    :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 0.8, ease: 'easeOut' }">
-                    <ClientOnly>
-                        <NuxtImg :src="isDark ? '/images/logo2-dark.png' : '/images/logo2-light.png'"
-                            alt="Tooka - Logo de la plateforme créative" class="h-12 w-auto" />
-                        <template #fallback>
-                            <div class="h-12 w-auto" />
-                        </template>
-                    </ClientOnly>
-                </motion.div>
+                    <p class="text-base md:text-lg text-slate-600 leading-relaxed">{{ getErrorDescription() }}</p>
 
-                <!-- Error Code -->
-                <motion.div :initial="{ opacity: 0, scale: 0.8 }" :animate="{ opacity: 1, scale: 1 }"
-                    :transition="{ duration: 0.6, delay: 0.2, ease: 'easeOut' }">
-                    <h1 class="text-8xl md:text-9xl font-bold text-gray-900 dark:text-white tracking-tight">
-                        {{ error?.statusCode || 500 }}
-                    </h1>
-                </motion.div>
+                    <div class="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+                        <TkButton variant="primary" size="lg" icon="i-heroicons-home" icon-position="leading" type="button" @click="handleError">
+                            Retour à l'accueil
+                        </TkButton>
+                        <TkButton variant="secondary" size="lg" icon="i-heroicons-arrow-left" icon-position="leading" type="button" @click="goBack">
+                            Retour en arrière
+                        </TkButton>
+                    </div>
 
-                <!-- Error Message -->
-                <motion.div :initial="{ opacity: 0, y: 20 }" :animate="{ opacity: 1, y: 0 }"
-                    :transition="{ duration: 0.7, delay: 0.4, ease: 'easeOut' }">
-                    <h2 class="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white mb-4">
-                        {{ getErrorMessage() }}
-                    </h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                        {{ getErrorDescription() }}
-                    </p>
-                </motion.div>
-
-                <!-- Action Buttons -->
-                <motion.div class="flex flex-col sm:flex-row gap-4 justify-center" :initial="{ opacity: 0, y: 30 }"
-                    :animate="{ opacity: 1, y: 0 }" :transition="{ duration: 0.8, delay: 0.6, ease: 'easeOut' }">
-                    <Button variant="primary" size="lg" leading-icon="i-lucide-home" type="button" @click="handleError">
-                        Retour à l'accueil
-                    </Button>
-                    <Button variant="outline" size="lg" leading-icon="i-lucide-arrow-left" type="button"
-                        @click="goBack">
-                        Retour en arrière
-                    </Button>
-                </motion.div>
-
-                <!-- Help Text -->
-                <motion.div :initial="{ opacity: 0 }" :animate="{ opacity: 1 }"
-                    :transition="{ duration: 0.5, delay: 0.8, ease: 'easeOut' }">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                    <p class="text-sm text-slate-500">
                         Si le problème persiste, contactez-nous à
-                        <a href="mailto:contact@tooka.io" class="text-indigo-600 dark:text-indigo-400 hover:underline">
-                            contact@tooka.io
-                        </a>
+                        <a href="mailto:contact@tooka.io" class="text-slate-900 hover:underline">contact@tooka.io</a>
                     </p>
-                </motion.div>
+                </div>
             </div>
-        </main>
 
-        <!-- Footer -->
-        <motion.footer class="py-6 text-center" :initial="{ opacity: 0 }" :animate="{ opacity: 1 }"
-            :transition="{ duration: 0.6, delay: 1.0, ease: 'easeOut' }">
-            <p class="text-sm text-gray-600 dark:text-gray-400">
-                © {{ new Date().getFullYear() }} Tooka. Tous droits réservés.
-            </p>
-        </motion.footer>
+            <p class="mt-6 text-center text-xs text-slate-500">© {{ new Date().getFullYear() }} Tooka. Tous droits réservés.</p>
+        </main>
     </div>
-</template>
+    </template>
 
 <script lang="ts" setup>
-import { motion, useScroll } from 'motion-v'
-
-// Scroll animations
-const { scrollYProgress } = useScroll()
-
-// Error handling
 const error = useError()
-
-// Color mode management
-const colorMode = useColorMode()
-
-const isDark = computed({
-    get() {
-        return colorMode.value === 'dark'
-    },
-    set(value: boolean) {
-        colorMode.preference = value ? 'dark' : 'light'
-    }
-})
-
-const toggleColorMode = () => {
-    isDark.value = !isDark.value
-}
-
-// Error message mapping
-const getErrorMessage = () => {
-    const statusCode = error.value?.statusCode || 500
-
-    switch (statusCode) {
-        case 404:
-            return 'Page introuvable'
-        case 403:
-            return 'Accès refusé'
-        case 500:
-            return 'Erreur serveur'
-        case 503:
-            return 'Service indisponible'
-        default:
-            return 'Une erreur est survenue'
-    }
-}
 
 const getErrorDescription = () => {
     const statusCode = error.value?.statusCode || 500
-
     switch (statusCode) {
         case 404:
             return 'La page que vous recherchez n\'existe pas ou a été déplacée.'
@@ -149,7 +53,6 @@ const getErrorDescription = () => {
     }
 }
 
-// Navigation handlers
 const handleError = () => {
     clearError({ redirect: '/' })
 }
@@ -160,7 +63,6 @@ const goBack = () => {
     }
 }
 
-// SEO Meta tags
 useSeoMeta({
     title: `Erreur ${error.value?.statusCode || 500} - Tooka`,
     description: 'Une erreur est survenue. Retournez à l\'accueil de Tooka.',

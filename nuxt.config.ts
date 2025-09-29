@@ -9,7 +9,8 @@ export default defineNuxtConfig({
     "@nuxt/eslint",
     "@vueuse/nuxt",
     "@nuxtjs/seo",
-    "motion-v/nuxt",
+    "@vueuse/motion/nuxt",
+    "@weareheavy/nuxt-cookie-consent"
   ],
 
   css: ["~/assets/css/main.css"],
@@ -56,4 +57,10 @@ export default defineNuxtConfig({
     klaviyoPrivateKey: process.env.KLAVIYO_PRIVATE_KEY,
     klaviyoListId: process.env.KLAVIYO_LIST_ID,
   },
+
+  // Cookie consent
+  cookieConsent: {
+    provider: "cookiebot",
+    cbid: "77b1f19a-1850-40e5-98b1-bfa677c4f15f"
+  }
 });
