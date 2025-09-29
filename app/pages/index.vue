@@ -20,7 +20,7 @@
 
     <ProblemsSection />
     <FeaturesSection />
-    <PricingSection />
+    <PricingSection v-if="false" />
   </div>
 </template>
 
