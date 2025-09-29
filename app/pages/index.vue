@@ -25,6 +25,9 @@
 </template>
 
 <script lang="ts" setup>
+definePageMeta({
+  showFaq: true
+})
 // SEO Meta tags avec Nuxt SEO
 useSeoMeta({
   title: 'Tooka - Créez plus. Livrez mieux.',

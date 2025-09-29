@@ -18,6 +18,7 @@
     "@unhead/vue": "^2.0.14",
     "@vueuse/motion": "^3.0.3",
     "@vueuse/nuxt": "^13.6.0",
+    "@weareheavy/nuxt-cookie-consent": "^1.0.4",
     "eslint": "^9.33.0",
     "motion-v": "^1.7.0",
     "nuxt": "^4.0.3",

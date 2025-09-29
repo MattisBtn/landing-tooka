@@ -16,7 +16,7 @@
               <ul class="flex items-center space-x-8">
                 <li>
                   <a
-                    href="#problems"
+                    href="/#problems"
                     :aria-current="linkIsActive('problems') ? 'page' : undefined"
                     :class="[baseLinkClasses, linkIsActive('problems') ? activeLinkClasses : hoverLinkClasses]"
                   >
@@ -25,7 +25,7 @@
                 </li>
                 <li>
                   <a
-                    href="#features"
+                    href="/#features"
                     :aria-current="linkIsActive('features') ? 'page' : undefined"
                     :class="[baseLinkClasses, linkIsActive('features') ? activeLinkClasses : hoverLinkClasses]"
                   >
@@ -34,7 +34,7 @@
                 </li>
                 <li>
                   <a
-                    href="#pricing"
+                    href="/#pricing"
                     :aria-current="linkIsActive('pricing') ? 'page' : undefined"
                     :class="[baseLinkClasses, linkIsActive('pricing') ? activeLinkClasses : hoverLinkClasses]"
                   >
@@ -43,7 +43,7 @@
                 </li>
                 <li>
                   <a
-                    href="#faq"
+                    href="/#faq"
                     :aria-current="linkIsActive('faq') ? 'page' : undefined"
                     :class="[baseLinkClasses, linkIsActive('faq') ? activeLinkClasses : hoverLinkClasses]"
                   >
@@ -108,25 +108,25 @@
           >
             <nav id="mobile-nav" class="flex flex-col p-6 space-y-3" aria-label="Navigation mobile" role="navigation">
               <a
-                href="#problems"
+                href="/#problems"
                 @click="closeMobileMenu"
                 :aria-current="linkIsActive('problems') ? 'page' : undefined"
                 :class="[baseMobileLinkClasses, linkIsActive('problems') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
               >Problèmes</a>
               <a
-                href="#features"
+                href="/#features"
                 @click="closeMobileMenu"
                 :aria-current="linkIsActive('features') ? 'page' : undefined"
                 :class="[baseMobileLinkClasses, linkIsActive('features') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
               >Fonctionnalités</a>
               <a
-                href="#pricing"
+                href="/#pricing"
                 @click="closeMobileMenu"
                 :aria-current="linkIsActive('pricing') ? 'page' : undefined"
                 :class="[baseMobileLinkClasses, linkIsActive('pricing') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
               >Tarifs</a>
               <a
-                href="#faq"
+                href="/#faq"
                 @click="closeMobileMenu"
                 :aria-current="linkIsActive('faq') ? 'page' : undefined"
                 :class="[baseMobileLinkClasses, linkIsActive('faq') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
