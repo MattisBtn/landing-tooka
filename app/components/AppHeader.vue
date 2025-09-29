@@ -53,7 +53,7 @@
               </ul>
             </nav>
 
-            <div class="hidden md:flex items-center justify-end flex-shrink-0" style="width: 120px;">
+            <div v-if="showHeaderCta" class="hidden md:flex items-center justify-end flex-shrink-0" style="width: 120px;">
               <TkButton :to="'#pricing'" variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer">Commencer</TkButton>
             </div>
 
@@ -131,7 +131,7 @@
                 :aria-current="linkIsActive('faq') ? 'page' : undefined"
                 :class="[baseMobileLinkClasses, linkIsActive('faq') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
               >FAQ</a>
-              <div class="flex flex-col space-y-3 pt-4 border-t border-white/30">
+              <div v-if="showHeaderCta" class="flex flex-col space-y-3 pt-4 border-t border-white/30">
                 <TkButton :to="'#pricing'" variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer">
                   Commencer
                 </TkButton>
@@ -151,6 +151,8 @@ const mobileMenuOpen = ref(false)
 const headerRef = ref<HTMLElement>()
 const isClosing = ref(false)
 const showMobileMenu = computed(() => mobileMenuOpen.value || isClosing.value)
+
+const showHeaderCta = ref(false)
 
 const motions = useMotions() as any
 

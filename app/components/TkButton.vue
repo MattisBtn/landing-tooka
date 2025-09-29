@@ -41,6 +41,7 @@
 </template>
 
 <script lang="ts" setup>
+import { resolveComponent } from 'vue'
 import type { RouteLocationRaw } from 'vue-router'
 
 type ButtonVariant = 'primary' | 'secondary'
@@ -67,7 +68,8 @@ const props = withDefaults(defineProps<{
   iconOnly: false
 })
 
-const tag = computed(() => props.to ? 'NuxtLink' : (props.href ? 'a' : 'button'))
+const nuxtLinkComponent = resolveComponent('NuxtLink')
+const tag = computed(() => props.to ? nuxtLinkComponent : (props.href ? 'a' : 'button'))
 
 const baseClasses = 'relative inline-flex items-center justify-center font-semibold rounded-2xl transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20 disabled:opacity-60 disabled:cursor-not-allowed overflow-hidden select-none cursor-pointer'
 
