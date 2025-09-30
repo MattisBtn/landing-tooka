@@ -28,19 +28,19 @@
 definePageMeta({
   showFaq: true
 })
+useHead({
+  titleTemplate: '%s'
+})
 // SEO Meta tags avec Nuxt SEO
 useSeoMeta({
-  title: 'Tooka - Créez plus. Livrez mieux.',
+  title: 'Tooka | Le CRM qui libère les créatifs.',
   description: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale. Gérez vos projets clients sans stress, avec style.',
-  keywords: 'créatifs, gestion de projets, plateforme, design, freelance, agence',
-  twitterCard: 'summary_large_image',
-  twitterTitle: 'Tooka - Créez plus. Livrez mieux.',
-  twitterDescription: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.'
+  twitterCard: 'summary_large_image'
 })
 
 // Schema.org structured data
 useSchemaOrg([
-  defineWebSite({
+    defineWebSite({
     name: 'Tooka',
     url: 'https://tooka.io',
     description: 'La plateforme qui accompagne les créatifs du brief initial à la livraison finale.'

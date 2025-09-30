@@ -15,10 +15,16 @@ export default defineNuxtConfig({
 
   css: ["~/assets/css/main.css"],
 
+  app: {
+    head: {
+      titleTemplate: "%s | Tooka",
+    },
+  },
+
   // Site configuration for SEO
   site: {
     url: "https://tooka.io",
-    name: "Tooka",
+    name: "Tooka | Le CRM qui libère les créatifs.",
     description:
       "La plateforme qui accompagne les créatifs du brief initial à la livraison finale. Gérez vos projets clients sans stress, avec style.",
     defaultLocale: "fr",

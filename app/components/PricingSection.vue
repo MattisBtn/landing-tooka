@@ -73,7 +73,7 @@
                 <div v-if="billingCycle === 'yearly'" class="mt-1 text-xs text-slate-500">facturé annuellement</div>
               </div>
 
-              <TkButton size="md" variant="primary" class="mt-2" icon="i-heroicons-arrow-right">
+              <TkButton v-if="false" size="md" variant="primary" class="mt-2" icon="i-heroicons-arrow-right">
                 Choisir {{ plan.name }}
               </TkButton>
 

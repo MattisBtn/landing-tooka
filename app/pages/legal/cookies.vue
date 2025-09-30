@@ -9,4 +9,9 @@
 definePageMeta({
   showFaq: false
 })
+
+useSeoMeta({
+  title: 'Cookies',
+  description: 'Politique de cookies Tooka.'
+})
 </script>

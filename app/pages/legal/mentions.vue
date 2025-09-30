@@ -45,7 +45,7 @@
 
 <script lang="ts" setup>
 useSeoMeta({
-  title: 'Mentions légales — Tooka',
+  title: 'Mentions légales',
   description: 'Mentions légales du site Tooka et informations sur l’éditeur et l’hébergeur.'
 })
 
