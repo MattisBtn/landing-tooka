@@ -3,12 +3,11 @@
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="Tarifs">Clairs et adaptés</TkBadge>
-        <h2 id="pricing-title" class="mt-8 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-          Choisissez ce qui vous convient
+        <h2 id="pricing-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
+          Des plans qui évoluent avec vous
         </h2>
         <p class="mt-4 text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-          Des plans simples pour démarrer, évoluer et accélérer.
-        </p>
+          Que vous soyez freelance ou studio, Tooka s’adapte à votre croissance sans vous ruiner.        </p>
       </div>
 
       <div class="mt-10">

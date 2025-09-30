@@ -12,18 +12,18 @@
       </TkBadge>
 
       <h1 id="hero-title" class="mt-8">
-        <span class="block text-5xl md:text-7xl font-extrabold leading-[1.05] [letter-spacing:-.02em] text-slate-900">
-          Créez plus.
+        <span class="block text-3xl md:text-5xl font-extrabold leading-[1.05] [letter-spacing:-.02em] text-slate-900">
+          Le CRM qui libère les créatifs.
         </span>
-        <span class="mt-2 block text-5xl md:text-7xl font-extrabold leading-[1.05] [letter-spacing:-.02em] text-slate-900">
-          Livrez mieux.
+        <span class="mt-2 block text-3xl md:text-5xl font-extrabold leading-[1.05] [letter-spacing:-.02em] text-slate-900">
+          Moins d'outils, plus de livraisons.
         </span>
       </h1>
 
       <p class="mt-6 text-base md:text-xl text-slate-600 max-w-2xl md:max-w-3xl mx-auto">
         Clients, devis, contrats et livrables —
         <br class="hidden sm:block" />
-        tout dans un seul CRM pensé pour les créatifs.
+        tout dans un seul CRM.
       </p>
 
       <div class="mt-10 max-w-xl mx-auto">

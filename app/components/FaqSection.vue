@@ -3,12 +3,10 @@
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="FAQ">On répond à vos questions</TkBadge>
-        <h2 id="faq-title" class="mt-8 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-          Tout devient clair
-        </h2>
+        <h2 id="faq-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
+          Pas de pièges, pas de surprises.        </h2>
         <p class="mt-4 text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-          Cinq réponses rapides pour démarrer sereinement.
-        </p>
+          Voici tout ce que vous devez savoir pour démarrer sereinement.        </p>
       </div>
 
       <div class="mt-10 space-y-4">

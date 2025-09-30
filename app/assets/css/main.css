@@ -2,7 +2,7 @@
 @import "@nuxt/ui";
 
 @theme static {
-  --font-sans: "Inter", sans-serif;
+  --font-sans: "Alan Sans", sans-serif;
   --font-serif: "Instrument Serif", serif;
 }
 

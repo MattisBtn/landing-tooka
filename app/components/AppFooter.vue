@@ -39,7 +39,7 @@
                 variant="secondary"
                 size="sm"
                 aria-label="Instagram"
-                href="https://instagram.com"
+                href="https://instagram.com/tooka.io"
                 target="_blank"
                 rel="noopener noreferrer"
                 icon-only

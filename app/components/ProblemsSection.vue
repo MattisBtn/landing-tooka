@@ -3,11 +3,11 @@
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="Zéro chaos">Ce que Tooka règle</TkBadge>
-        <h2 id="problems-title" class="mt-8 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-          Fini le chaos, créez mieux
+        <h2 id="problems-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
+          Dites adieu aux tableurs et aux relances manuelles
         </h2>
         <p class="mt-4 text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-          Centralisez, automatisez, livrez sereinement.
+          Centralisez tout, automatisez vos tâches, livrez sans stress.
         </p>
       </div>
 

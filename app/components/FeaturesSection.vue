@@ -3,11 +3,11 @@
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
         <TkBadge label="Fonctionnalités">Tout pour livrer</TkBadge>
-        <h2 id="features-title" class="mt-8 text-3xl md:text-5xl font-extrabold leading-tight text-slate-900">
-          Tout en un, simple
+        <h2 id="features-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
+          Un seul outil pour tout gérer
         </h2>
         <p class="mt-4 text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-          Gérez de A à Z sans friction, du brief au paiement.
+          Contrairement aux CRM généralistes, Tooka est pensé pour les créatifs : devis, contrats, galeries, livrables — tout est déjà inclus.
         </p>
       </div>
 
@@ -90,8 +90,8 @@ const items: FeatureItem[] = [
   {
     key: 'dashboard',
     label: 'Tableau de bord',
-    title: 'Pilotez vos KPI en un coup d’œil',
-    description: 'Un tableau clair pour suivre revenus, tâches, échéances et avancées de projet.',
+    title: 'Ne pilotez plus à l’aveugle.',
+    description: 'Suivez vos revenus, vos tâches et vos délais en temps réel, sur un tableau de bord clair et actionnable.',
     points: [
       'Vue consolidée de l’activité',
       'Alertes et priorités du jour',
