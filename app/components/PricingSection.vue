@@ -69,7 +69,7 @@
               <div class="mt-2">
                 <div class="text-3xl font-extrabold text-slate-900">
                   {{ displayPrice(plan) }}
-                  <span class="text-base font-medium text-slate-600">/ mois</span>
+                  <span class="text-base font-medium text-slate-600">/ mois HT</span>
                 </div>
                 <div v-if="billingCycle === 'yearly'" class="mt-1 text-xs text-slate-500">facturé annuellement</div>
               </div>
@@ -114,50 +114,41 @@ const billingCycle = ref<BillingCycle>('monthly')
 const plans: PricingPlan[] = [
   {
     key: 'starter',
-    name: 'Starter',
+    name: 'Standard',
     image: '/images/pricing/starter.png',
-    target: 'Pour démarrer seul',
-    monthly: 15,
-    yearlyPerMonth: 12,
+    target: 'Freelance',
+    monthly: 34.99,
+    yearlyPerMonth: 29.99,
     features: [
-      'Moodboard et galerie',
-      'Sélection simple',
-      'Paiements de base',
-      '3 projets actifs',
-      'Stockage 10 Go',
-      'Support standard'
+      '25 projets / mois',
+      'Stockage 50 Go',
+      'Support Standard (≤48h)'
     ]
   },
   {
     key: 'pro',
     name: 'Pro',
     image: '/images/pricing/pro.png',
-    target: 'Pour créatifs réguliers',
-    monthly: 29,
-    yearlyPerMonth: 24,
+    target: 'Agence',
+    monthly: 54.99,
+    yearlyPerMonth: 46.75,
     features: [
-      'Galeries payantes',
-      'Révisions cadrées',
-      'Upsell de médias',
       'Projets illimités',
-      'Stockage 100 Go',
-      'Support prioritaire'
+      'Stockage 350 Go',
+      'Support Prioritaire (≤24h)'
     ]
   },
   {
     key: 'pro-plus',
-    name: 'Pro+',
+    name: 'Business',
     image: '/images/pricing/pro-plus.png',
-    target: 'Pour équipes exigeantes',
-    monthly: 49,
-    yearlyPerMonth: 39,
+    target: 'Studio',
+    monthly: 99,
+    yearlyPerMonth: 84.25,
     features: [
-      'RAW et livraisons avancées',
-      'Workflow sur-mesure',
-      'Rôles & permissions',
-      'Marque blanche',
+      'Projets illimités',
       'Stockage 1 To',
-      'SLA & success manager'
+      'Support Premium (≤12h)'
     ]
   }
 ]
