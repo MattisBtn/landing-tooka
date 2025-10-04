@@ -6,6 +6,7 @@
     <main id="main" class="pt-24 flex-1">
       <slot />
       <FaqSection v-if="showFaq" />
+      <CtaSection />
     </main>
 
     <AppFooter />

@@ -4,11 +4,9 @@
       <div class="text-center">
         <TkBadge label="Zéro chaos">Ce que Tooka règle</TkBadge>
         <h2 id="problems-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
-          Dites adieu aux tableurs et aux relances manuelles
-        </h2>
+          Tout ce dont un photographe a besoin, au même endroit.        </h2>
         <p class="mt-4 text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-          Centralisez tout, automatisez vos tâches, livrez sans stress.
-        </p>
+          Centralisez vos devis, sélections et livraisons au même endroit. Gagnez du temps, augmentez vos revenus, offrez une expérience client pro.        </p>
       </div>
 
       <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
@@ -23,7 +21,7 @@
             loading="lazy"
           />
           <h3 class="mt-6 text-xl font-semibold text-slate-900">Gagnez du temps</h3>
-          <p class="mt-2 text-slate-600">Devis, factures, relances en pilote automatique.</p>
+          <p class="mt-2 text-slate-600">Tout est centralisé au même endroit pour un process simple et fluide.</p>
           </div>
         </div>
 
@@ -37,8 +35,8 @@
             class="h-24 w-24 object-contain"
             loading="lazy"
           />
-          <h3 class="mt-6 text-xl font-semibold text-slate-900">Revenus sécurisés</h3>
-          <p class="mt-2 text-slate-600">Facturez vite, suivez tout, dites adieu aux impayés.</p>
+          <h3 class="mt-6 text-xl font-semibold text-slate-900">Augmentez vos revenus</h3>
+          <p class="mt-2 text-slate-600">Propositions interactives et un système de sélection pensé pour booster naturellement vos ventes.</p>
           </div>
         </div>
 
@@ -52,11 +50,15 @@
             class="h-24 w-24 object-contain"
             loading="lazy"
           />
-          <h3 class="mt-6 text-xl font-semibold text-slate-900">Image impeccable</h3>
-          <p class="mt-2 text-slate-600">Portail client et livrables soignés, confiance dès le premier échange.</p>
+          <h3 class="mt-6 text-xl font-semibold text-slate-900">Paraissez plus pro</h3>
+          <p class="mt-2 text-slate-600">Un workflow clair et professionnel qui inspire confiance dès le premier échange. </p>
           </div>
         </div>
+
       </div>
+      <div class="flex w-full justify-center mt-12">
+        <TkButton to="/#hero" size="lg" variant="primary" icon="i-heroicons-arrow-right">M'inscrire à la bêta</TkButton>
+        </div>
     </div>
   </section>
   

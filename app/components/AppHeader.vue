@@ -8,7 +8,7 @@
           <div class="flex items-center pl-6 pr-3 py-2 w-full justify-between">
             <div class="flex-shrink-0">
               <NuxtLink to="/" aria-label="Accueil">
-                <NuxtImg src="/images/logo2-light.png" alt="Tooka" class="h-8 w-auto" />
+                <NuxtImg src="/images/logo-light.png" alt="Tooka" class="h-8 w-auto" />
               </NuxtLink>
             </div>
 

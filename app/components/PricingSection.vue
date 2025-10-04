@@ -4,10 +4,11 @@
       <div class="text-center">
         <TkBadge label="Tarifs">Clairs et adaptés</TkBadge>
         <h2 id="pricing-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
-          Des plans qui évoluent avec vous
+          Des formules adaptées à chaque photographe.
         </h2>
         <p class="mt-4 text-base md:text-lg text-slate-600 max-w-3xl mx-auto">
-          Que vous soyez freelance ou studio, Tooka s’adapte à votre croissance sans vous ruiner.        </p>
+          Que vous soyez freelance, agence ou studio, Tooka grandit avec vous et vous accompagne dans votre succès.
+        </p>
       </div>
 
       <div class="mt-10">
@@ -47,19 +48,19 @@
           <div
             v-for="plan in plans"
             :key="plan.key"
-            class="relative overflow-hidden rounded-2xl backdrop-blur-2xl bg-white/70 ring-1 ring-white/60 shadow-2xl shadow-black/20 before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/60 before:via-white/20 before:to-transparent before:pointer-events-none after:absolute after:inset-0 after:rounded-2xl after:border after:border-white/40 after:pointer-events-none"
+            :class="[
+              'relative rounded-2xl backdrop-blur-2xl bg-white/70 ring-1 shadow-2xl shadow-black/20 before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/60 before:via-white/20 before:to-transparent before:pointer-events-none after:absolute after:inset-0 after:rounded-2xl after:border after:pointer-events-none',
+              plan.key === 'pro' ? 'ring-slate-900 after:border-slate-900/40 scale-105 md:scale-110 pt-4' : 'ring-white/60 after:border-white/40'
+            ]"
           >
+            <div v-if="plan.key === 'pro'" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
+              <span class="inline-flex items-center px-4 py-1 rounded-full text-xs font-semibold bg-slate-900 text-white shadow-lg">
+                Populaire
+              </span>
+            </div>
             <span class="pointer-events-none absolute -top-14 left-1/2 h-24 w-64 -translate-x-1/2 rounded-full bg-white/40 blur-3xl"></span>
             <span class="pointer-events-none absolute -bottom-6 left-1/2 h-16 w-3/4 -translate-x-1/2 rounded-full bg-black/10 blur-2xl"></span>
-            <div class="relative z-10 p-6 flex flex-col items-center text-center gap-4">
-              <div class="h-24 md:h-28 w-full flex items-center justify-center">
-                <NuxtImg
-                  :src="planImage(plan.key)"
-                  :alt="`Illustration ${plan.name}`"
-                  sizes="128px md:160px"
-                  class="h-24 md:h-28 w-auto object-contain drop-shadow-[0_8px_16px_rgba(0,0,0,0.25)]"
-                />
-              </div>
+            <div :class="['relative z-10 p-6 flex flex-col items-center text-center gap-4', plan.key === 'pro' ? 'pt-2' : '']">
               <div>
                 <h3 class="text-xl font-semibold text-slate-900">{{ plan.name }}</h3>
                 <p class="mt-1 text-sm text-slate-600">{{ plan.target }}</p>
@@ -73,11 +74,7 @@
                 <div v-if="billingCycle === 'yearly'" class="mt-1 text-xs text-slate-500">facturé annuellement</div>
               </div>
 
-              <TkButton v-if="false" size="md" variant="primary" class="mt-2" icon="i-heroicons-arrow-right">
-                Choisir {{ plan.name }}
-              </TkButton>
-
-              <ul class="mt-4 w-full space-y-2 text-left">
+              <ul class="mt-6 w-full space-y-2 text-left">
                 <li
                   v-for="feat in plan.features"
                   :key="feat"
@@ -90,6 +87,12 @@
             </div>
           </div>
         </div>
+
+        <div class="mt-10 flex justify-center">
+          <TkButton href="#hero" size="lg" variant="primary" icon="i-heroicons-arrow-right">
+            Commencer maintenant
+          </TkButton>
+        </div>
       </div>
     </div>
   </section>
@@ -101,7 +104,6 @@ type BillingCycle = 'monthly' | 'yearly'
 type PricingPlan = {
   key: string
   name: string
-  image: string
   target: string
   monthly: number
   yearlyPerMonth: number
@@ -114,7 +116,6 @@ const plans: PricingPlan[] = [
   {
     key: 'starter',
     name: 'Standard',
-    image: '/images/pricing/starter.png',
     target: 'Freelance',
     monthly: 34.99,
     yearlyPerMonth: 29.99,
@@ -127,7 +128,6 @@ const plans: PricingPlan[] = [
   {
     key: 'pro',
     name: 'Pro',
-    image: '/images/pricing/pro.png',
     target: 'Agence',
     monthly: 54.99,
     yearlyPerMonth: 46.75,
@@ -140,7 +140,6 @@ const plans: PricingPlan[] = [
   {
     key: 'pro-plus',
     name: 'Business',
-    image: '/images/pricing/pro-plus.png',
     target: 'Studio',
     monthly: 99,
     yearlyPerMonth: 84.25,
@@ -151,11 +150,6 @@ const plans: PricingPlan[] = [
     ]
   }
 ]
-
-function planImage(key: string) {
-  const found = plans.find(p => p.key === key)
-  return found?.image || ''
-}
 
 function displayPrice(plan: PricingPlan) {
   const value = billingCycle.value === 'monthly' ? plan.monthly : plan.yearlyPerMonth

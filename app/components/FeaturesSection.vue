@@ -2,7 +2,7 @@
   <section id="features" class="scroll-mt-28 py-16 md:py-20" aria-labelledby="features-title">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
-        <TkBadge label="Fonctionnalités">Tout pour livrer</TkBadge>
+        <TkBadge :dot="true">Tout pour livrer</TkBadge>
         <h2 id="features-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
           Un seul outil pour tout gérer
         </h2>
@@ -31,15 +31,6 @@
           >
             <span>{{ item.label }}</span>
           </button>
-
-          <div
-            aria-disabled="true"
-            class="w-full inline-flex items-center justify-center gap-2 px-4 py-2 md:py-3 rounded-xl text-sm font-medium relative text-slate-600 bg-white/50 backdrop-blur-2xl ring-1 ring-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),_0_8px_16px_-4px_rgba(0,0,0,0.08)] before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-white/60 before:to-transparent before:pointer-events-none cursor-not-allowed select-none"
-            title="Gestion des mannequins — bientôt disponible"
-          >
-            <span>Mannequins</span>
-            <span class="inline-flex items-center px-2 py-0.5 rounded-lg text-xs text-white bg-slate-900/80 ring-1 ring-white/10">Bientôt</span>
-          </div>
         </nav>
 
         <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
@@ -90,55 +81,69 @@ const items: FeatureItem[] = [
   {
     key: 'dashboard',
     label: 'Tableau de bord',
-    title: 'Ne pilotez plus à l’aveugle.',
-    description: 'Suivez vos revenus, vos tâches et vos délais en temps réel, sur un tableau de bord clair et actionnable.',
+    title: 'Pilotez votre activité photo en temps réel.',
+    description: 'Revenus, projets signés, délais… tout est suivi dans un tableau de bord simple et actionnable.',
     points: [
-      'Vue consolidée de l’activité',
-      'Alertes et priorités du jour',
-      'Indicateurs de performance clés'
+      '📈 Indicateurs clés pour progresser',
+      '🔎 Vue claire de votre activité',
+      '⏱️ Délais maîtrisés'
     ],
     imageSrc: '/images/features/dashboard-kpi.png',
     imageAlt: 'Tableau de bord Tooka avec KPI'
   },
   {
-    key: 'galerie',
-    label: 'Galerie',
-    title: 'Vendez vos galeries, sans aller-retour',
-    description: "Le client paie directement sa sélection. Gérez l'acompte et le solde au même endroit.",
+    key: 'propositions',
+    label: 'Propositions',
+    title: 'Faites la différence dès la première proposition.',
+    description: 'Offrez une expérience professionnelle dès le devis, et transformez plus de prospects en clients.',
     points: [
-      'Paiement intégré sur la galerie',
-      "Gestion d'acompte et solde",
-      'Validation et livraison en un clic'
+      '✍️ Signature électronique intégrée',
+      '🎯 Propositions visuelles et personnalisées',
+      '💳 Paiement d\'acompte en ligne'
     ],
-    imageSrc: '/images/features/galerie.png',
-    imageAlt: 'Galerie Tooka avec médias'
+    imageSrc: '/images/features/propositions.png',
+    imageAlt: 'Interface de propositions Tooka'
+  },
+  {
+    key: 'moodboard',
+    label: 'Moodboard',
+    title: 'Co-créez vos shootings avec vos clients.',
+    description: 'Un moodboard vivant où chacun peut partager des visuels, commenter, liker et valider — pour une vision claire dès le départ.',
+    points: [
+      '📤 Uploads faciles côté client',
+      '💬 Réactions & commentaires intégrés',
+      '🔎 Transparence totale du process'
+    ],
+    imageSrc: '/images/features/moodboard.png',
+    imageAlt: 'Moodboard Tooka'
   },
   {
     key: 'selection',
     label: 'Sélection',
-    title: 'Sélection pro, formats RAW inclus',
-    description: 'Proposez, faites choisir, upsellez vos médias et offrez des révisions maîtrisées.',
+    title: '📸 Sélection intelligente, plus simple et plus rentable.',
+    description: 'Vos clients choisissent leurs photos directement en ligne, téléchargent même les RAW, et chaque sélection devient une opportunité de vendre plus.',
     points: [
-      'Support des formats RAW',
-      'Upsell de médias en un clic',
-      'Demandes de révisions cadrées'
+      '📂 Support des RAW',
+      '💸 Augmentez vos revenus → upsell d\'images en un clic',
+      '⏱️ Gagnez du temps → sélection fluide, zéro allers-retours'
     ],
     imageSrc: '/images/features/selection.png',
     imageAlt: 'Interface de sélection Tooka'
   },
   {
-    key: 'moodboard',
-    label: 'Moodboard',
-    title: 'Co-créez avec vos clients',
-    description: 'Un moodboard vivant: le client peut uploader, réagir et commenter en contexte.',
+    key: 'galerie',
+    label: 'Galerie',
+    title: 'La galerie qui simplifie vos échanges et vos paiements.',
+    description: 'Plus besoin d\'allers-retours : tout est géré dans la galerie — sélection, paiement et validation finale.',
     points: [
-      'Uploads côté client',
-      'Réactions et commentaires',
-      'Historique clair des échanges'
+      '💸 Paiements fluides et rapides',
+      '🌟 Expérience premium pour vos clients',
+      '🚀 Livraison déclenchée à la validation'
     ],
-    imageSrc: '/images/features/moodboard.png',
-    imageAlt: 'Moodboard Tooka'
-  }
+    imageSrc: '/images/features/galerie.png',
+    imageAlt: 'Galerie Tooka avec médias'
+  },
+
 ]
 
 const activeIndex = ref<number>(0)

@@ -20,6 +20,7 @@
 
     <ProblemsSection />
     <FeaturesSection />
+    <RoadmapSection />
     <PricingSection />
   </div>
 </template>
