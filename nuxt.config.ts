@@ -37,6 +37,17 @@ export default defineNuxtConfig({
     },
   },
 
+  // Scripts
+  $production: {
+    scripts: {
+      registry: {
+        metaPixel: {
+          id: '1544800703551362',
+        }
+      }
+    }
+  },
+
   // OG Image configuration
   ogImage: {
     componentOptions: {
