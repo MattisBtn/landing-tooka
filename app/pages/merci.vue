@@ -25,6 +25,7 @@
 </template>
 
 <script lang="ts" setup>
+import { useFacebookPixel } from '~/composables/useFacebookPixel'
 import merciMiddleware from '~/middleware/merci'
 
 definePageMeta({
@@ -35,6 +36,15 @@ definePageMeta({
 useSeoMeta({
   title: 'Merci',
   description: "Merci pour votre inscription à la liste d'attente Tooka."
+})
+
+const { track } = useFacebookPixel()
+
+onMounted(() => {
+  track('Lead', {
+    content_name: 'Waitlist Signup',
+    content_category: 'waitlist'
+  })
 })
 </script>
 

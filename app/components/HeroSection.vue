@@ -80,12 +80,15 @@
 </template>
 
 <script lang="ts" setup>
+import { useFacebookPixel } from '~/composables/useFacebookPixel'
+
 const email = ref('')
 const loading = ref(false)
 const message = ref('')
 const success = ref<boolean | null>(null)
 const consent = ref(false)
 const isEmailValid = computed(() => !!email.value && email.value.includes('@'))
+const { track } = useFacebookPixel()
 
 watch(email, () => {
   if (!isEmailValid.value) consent.value = false
@@ -105,6 +108,12 @@ async function onSubmit() {
   loading.value = true
   message.value = ''
   success.value = null
+  
+  track('InitiateCheckout', {
+    content_name: 'Waitlist Form',
+    content_category: 'waitlist'
+  })
+  
   try {
     const res = await $fetch('/api/klaviyo/subscribe', {
       method: 'POST',
