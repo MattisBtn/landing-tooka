@@ -37,17 +37,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // Scripts
-  $production: {
-    scripts: {
-      registry: {
-        metaPixel: {
-          id: '1544800703551362',
-        }
-      }
-    }
-  },
-
   // OG Image configuration
   ogImage: {
     componentOptions: {
@@ -78,6 +67,28 @@ export default defineNuxtConfig({
   // Cookie consent
   cookieConsent: {
     provider: "cookiebot",
-    cbid: "77b1f19a-1850-40e5-98b1-bfa677c4f15f"
+    cbid: "77b1f19a-1850-40e5-98b1-bfa677c4f15f",
+    scripts: {
+      marketing: [
+        // 1) loader du pixel
+        { src: 'https://connect.facebook.net/en_US/fbevents.js', async: true },
+
+        // 2) init + PageView
+        {
+          // inline script
+          children: `
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);
+t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '1544800703551362');
+fbq('track', 'PageView');
+          `,
+        },
+      ],
+    },
   }
 });
