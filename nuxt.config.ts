@@ -62,23 +62,11 @@ export default defineNuxtConfig({
   runtimeConfig: {
     klaviyoPrivateKey: process.env.KLAVIYO_PRIVATE_KEY,
     klaviyoListId: process.env.KLAVIYO_LIST_ID,
-    public: {
-      facebookPixelId: '1544800703551362',
-    },
   },
 
   // Cookie consent
   cookieConsent: {
     provider: "cookiebot",
     cbid: "77b1f19a-1850-40e5-98b1-bfa677c4f15f",
-  },
-
-  // Scripts configuration
-  scripts: {
-    registry: {
-      metaPixel: {
-        id: '1544800703551362',
-      }
-    }
   }
 });
