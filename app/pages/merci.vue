@@ -41,9 +41,11 @@ useSeoMeta({
 const { track } = useFacebookPixel()
 
 onMounted(() => {
-  track('Lead', {
+  track('CompleteRegistration', {
     content_name: 'Waitlist Signup',
-    content_category: 'waitlist'
+    status: 'completed',
+    value: 0,
+    currency: 'EUR'
   })
 })
 </script>

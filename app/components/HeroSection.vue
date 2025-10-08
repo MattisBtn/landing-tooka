@@ -112,8 +112,8 @@ async function onSubmit() {
   message.value = ''
   success.value = null
   
-  track('InitiateCheckout', {
-    content_name: 'Waitlist Form',
+  track('Lead', {
+    content_name: 'Waitlist Form Submit',
     content_category: 'waitlist'
   })
   
