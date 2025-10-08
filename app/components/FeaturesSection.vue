@@ -1,8 +1,8 @@
 <template>
-  <section id="features" class="scroll-mt-28 py-16 md:py-20" aria-labelledby="features-title">
+  <section id="features" class="scroll-mt-28 py-16 md:py-10" aria-labelledby="features-title">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
-        <TkBadge :dot="true">Tout pour livrer</TkBadge>
+        <TkBadge label="Tout pour livrer" />
         <h2 id="features-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
           Un seul outil pour tout gérer
         </h2>
@@ -14,24 +14,43 @@
       <div class="mt-10">
         <nav
           aria-label="Navigation des fonctionnalités"
-          class="grid grid-cols-1 md:grid-cols-5 gap-2 md:gap-3 p-2 rounded-2xl bg-slate-100/80 ring-1 ring-black/5 shadow-2xl shadow-black/5"
+          class="md:grid md:grid-cols-5 md:gap-3 p-2 rounded-2xl bg-slate-100/80 ring-1 ring-black/5 shadow-2xl shadow-black/5"
         >
+          <div class="flex md:contents overflow-x-auto gap-2 md:gap-0 scrollbar-hide snap-x snap-mandatory px-4 md:px-0">
+            <button
+              v-for="(item, index) in items"
+              :key="item.key"
+              type="button"
+              :aria-selected="activeIndex === index ? 'true' : 'false'"
+              :class="[
+                'flex-shrink-0 snap-start inline-flex items-center justify-center gap-2 rounded-xl text-sm font-medium transition relative md:w-full',
+                'px-3 py-1.5 md:px-4 md:py-3',
+                activeIndex === index
+                  ? 'text-slate-900 bg-white ring-1 ring-slate-200'
+                  : 'text-slate-700 hover:text-slate-900 hover:bg-white/50'
+              ]"
+              @click="activeIndex = index"
+            >
+              <span class="whitespace-nowrap">{{ item.label }}</span>
+            </button>
+          </div>
+        </nav>
+        
+        <div class="flex justify-center gap-1.5 mt-4 md:hidden">
           <button
             v-for="(item, index) in items"
-            :key="item.key"
+            :key="`dot-${item.key}`"
             type="button"
-            :aria-selected="activeIndex === index ? 'true' : 'false'"
+            :aria-label="`Aller à ${item.label}`"
             :class="[
-              'w-full inline-flex items-center justify-center gap-2 px-4 py-2 md:py-3 rounded-xl text-sm font-medium transition relative',
+              'h-1.5 rounded-full transition-all',
               activeIndex === index
-                ? 'text-slate-900 backdrop-blur-2xl bg-white/70 ring-1 ring-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),_0_8px_16px_-4px_rgba(0,0,0,0.15)] before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-white/60 before:to-transparent before:pointer-events-none'
-                : 'text-slate-700 hover:text-slate-900 hover:bg-white/70'
+                ? 'w-6 bg-slate-900'
+                : 'w-1.5 bg-slate-300 hover:bg-slate-400'
             ]"
             @click="activeIndex = index"
-          >
-            <span>{{ item.label }}</span>
-          </button>
-        </nav>
+          />
+        </div>
 
         <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 items-center">
           <div>
@@ -49,7 +68,13 @@
             </div>
           </div>
 
-          <div class="relative perspective-midrange">
+          <div 
+            ref="imageContainer"
+            class="relative perspective-midrange touch-pan-y select-none"
+            @touchstart="handleTouchStart"
+            @touchmove="handleTouchMove"
+            @touchend="handleTouchEnd"
+          >
             <div class="relative rounded-3xl overflow-hidden shadow-2xl shadow-black/10 ring-1 ring-black/5 origin-top transform-gpu">
               <div class="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent pointer-events-none z-10"></div>
               <NuxtImg
@@ -148,9 +173,42 @@ const items: FeatureItem[] = [
 
 const activeIndex = ref<number>(0)
 const activeItem = computed<FeatureItem>(() => items[activeIndex.value] ?? items[0]!)
+
+const imageContainer = ref<HTMLElement | null>(null)
+let touchStartX = 0
+let touchEndX = 0
+
+const handleTouchStart = (e: TouchEvent) => {
+  touchStartX = e.changedTouches[0]!.screenX
+}
+
+const handleTouchMove = (e: TouchEvent) => {
+  touchEndX = e.changedTouches[0]!.screenX
+}
+
+const handleTouchEnd = () => {
+  const swipeThreshold = 50
+  const diff = touchStartX - touchEndX
+
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0 && activeIndex.value < items.length - 1) {
+      activeIndex.value++
+    } else if (diff < 0 && activeIndex.value > 0) {
+      activeIndex.value--
+    }
+  }
+}
 </script>
 
 <style scoped>
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
 </style>
 
 

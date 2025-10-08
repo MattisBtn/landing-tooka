@@ -1,5 +1,5 @@
 <template>
-  <section id="hero" class="relative py-20 md:py-28 overflow-hidden" aria-labelledby="hero-title">
+  <section id="hero" class="relative pt-20 pb-8 overflow-hidden" aria-labelledby="hero-title">
     <div class="absolute inset-0 -z-10">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 rounded-full blur-3xl opacity-30"></div>
       <div class="absolute top-20 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-amber-50 to-orange-50 rounded-full blur-3xl opacity-20"></div>
@@ -8,15 +8,14 @@
     <div class="mx-auto max-w-5xl px-6 text-center relative">
       <div class="inline-block animate-fade-in">
         <TkBadge label="Bientôt disponible">
-          Pensée pour créatifs
         </TkBadge>
       </div>
 
       <h1 id="hero-title" class="mt-10 animate-fade-in-up">
-        <span class="block text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] [letter-spacing:-.02em] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+        <span class="block text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] [letter-spacing:-.02em] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
           La solution tout-en-un
         </span>
-        <span class="mt-2 block text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] [letter-spacing:-.02em] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+        <span class="mt-2 block text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] [letter-spacing:-.02em] bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
           pour les photographes
         </span>
       </h1>
@@ -74,6 +73,10 @@
           <UIcon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500" />
           <span>+200 photographes inscrits</span>
         </div>
+      </div>
+
+      <div class="mt-12 flex justify-center animate-fade-in-up" style="animation-delay: 400ms;">
+        <TkSocialProof />
       </div>
     </div>
   </section>

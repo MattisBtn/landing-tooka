@@ -1,5 +1,5 @@
 <template>
-  <section id="faq" class="relative scroll-mt-28 py-20 md:py-28 overflow-hidden" aria-labelledby="faq-title">
+  <section id="faq" class="relative scroll-mt-28 py-20 overflow-hidden" aria-labelledby="faq-title">
     <div class="absolute inset-0 -z-10">
       <div class="absolute top-1/3 right-1/4 w-[650px] h-[650px] bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50 rounded-full blur-3xl opacity-20"></div>
       <div class="absolute bottom-1/3 left-1/4 w-[550px] h-[550px] bg-gradient-to-br from-amber-50 to-orange-50 rounded-full blur-3xl opacity-15"></div>
@@ -7,7 +7,7 @@
 
     <div class="mx-auto max-w-4xl px-6 relative">
       <div class="text-center animate-fade-in-up">
-        <TkBadge label="Pas encore convaincu ?">On répond à vos questions</TkBadge>
+        <TkBadge label="Pas encore convaincu ?" />
         <h2 id="faq-title" class="mt-8 text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
           Les réponses à vos dernières hésitations
         </h2>

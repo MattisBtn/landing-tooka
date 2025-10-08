@@ -1,8 +1,8 @@
 <template>
-  <section id="pricing" class="scroll-mt-28 py-16 md:py-20" aria-labelledby="pricing-title">
+  <section id="pricing" class="scroll-mt-28 py-16 md:py-10" aria-labelledby="pricing-title">
     <div class="mx-auto max-w-6xl px-6">
       <div class="text-center">
-        <TkBadge label="Tarifs">Clairs et adaptés</TkBadge>
+        <TkBadge label="Tarifs" />
         <h2 id="pricing-title" class="mt-8 text-2xl md:text-3xl font-extrabold leading-tight text-slate-900">
           Des formules adaptées à chaque photographe.
         </h2>

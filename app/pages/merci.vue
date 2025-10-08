@@ -1,5 +1,5 @@
 <template>
-  <section class="py-16 md:py-20" aria-labelledby="merci-title">
+  <section class="py-16 md:py-10" aria-labelledby="merci-title">
     <div class="mx-auto max-w-3xl px-6 text-center">
       <h1 id="merci-title" class="text-4xl md:text-6xl font-extrabold leading-tight text-slate-900">
         Merci !
