@@ -127,6 +127,7 @@ async function onSubmit() {
     if (success.value) {
       email.value = ''
       consent.value = false
+      await new Promise(resolve => setTimeout(resolve, 300))
       await navigateTo('/merci')
       return
     }
