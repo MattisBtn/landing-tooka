@@ -1,7 +1,7 @@
 export function useActiveSection(sectionIds: string[] = ['hero', 'problems', 'features', 'pricing', 'faq']) {
   const activeSectionId = ref<string>('')
 
-  if (process.client) {
+  if (import.meta.client) {
     onMounted(() => {
       let ticking = false
 

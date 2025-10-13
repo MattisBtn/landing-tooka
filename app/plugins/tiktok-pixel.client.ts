@@ -1,0 +1,72 @@
+export default defineNuxtPlugin(() => {
+  const config = useRuntimeConfig()
+  const pixelId = (config.public as any)?.tiktokPixelId as string | undefined
+
+  const loadPixel = () => {
+    if (!pixelId || (window as any).ttq?.loaded) return
+    ;(function (w: any, d: Document, t: string) {
+      w.TiktokAnalyticsObject = 'ttq'
+      const ttq = (w.ttq = w.ttq || [])
+      ttq.loaded = true
+      ttq.methods = [
+        'page',
+        'track',
+        'identify',
+        'instances',
+        'debug',
+        'on',
+        'off',
+        'once',
+        'ready',
+        'setUserProperties',
+        'upload',
+      ]
+      ttq.setAndDefer = (target: any, method: string) => {
+        target[method] = function () {
+          target.push([method].concat([].slice.call(arguments, 0)))
+        }
+      }
+      for (let i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i])
+      ttq.load = (id: string, n?: any) => {
+        ttq._i = ttq._i || {}
+        ttq._i[id] = []
+        ttq._i[id]._u = 'https://analytics.tiktok.com/i18n/pixel/events.js'
+        ttq._t = ttq._t || {}
+        ttq._t[id] = +new Date()
+        ttq._o = ttq._o || {}
+        ttq._o[id] = n || {}
+        const s = d.createElement(t)
+        s.type = 'text/javascript'
+        s.async = true
+        s.src = `https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=${id}&lib=ttq`
+        const a = d.getElementsByTagName(t)[0]
+        a.parentNode?.insertBefore(s, a)
+      }
+      ttq.load(pixelId)
+      ttq.page()
+    })(window, document, 'script')
+  }
+
+  const loadWhenMarketingConsent = () => {
+    const cb = (window as any).Cookiebot
+    if (cb?.consent?.marketing) {
+      loadPixel()
+      return
+    }
+    window.addEventListener('CookiebotOnConsentReady', () => {
+      if ((window as any).Cookiebot?.consent?.marketing) loadPixel()
+    })
+    window.addEventListener('CookiebotOnAccept', () => {
+      if ((window as any).Cookiebot?.consent?.marketing) loadPixel()
+    })
+  }
+
+  loadWhenMarketingConsent()
+
+  const router = useRouter()
+  router.afterEach(() => {
+    ;(window as any).ttq?.page()
+  })
+})
+
+

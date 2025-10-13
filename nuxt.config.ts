@@ -62,6 +62,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     klaviyoPrivateKey: process.env.KLAVIYO_PRIVATE_KEY,
     klaviyoListId: process.env.KLAVIYO_LIST_ID,
+    public: {
+      tiktokPixelId: process.env.TIKTOK_PIXEL_ID,
+    },
   },
 
   // Cookie consent

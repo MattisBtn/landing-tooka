@@ -84,6 +84,7 @@
 
 <script lang="ts" setup>
 import { useFacebookPixel } from '~/composables/useFacebookPixel'
+import { useTikTokPixel } from '~/composables/useTikTokPixel'
 
 const email = ref('')
 const loading = ref(false)
@@ -92,6 +93,7 @@ const success = ref<boolean | null>(null)
 const consent = ref(false)
 const isEmailValid = computed(() => !!email.value && email.value.includes('@'))
 const { track } = useFacebookPixel()
+const { track: trackTt } = useTikTokPixel()
 
 watch(email, () => {
   if (!isEmailValid.value) consent.value = false
@@ -113,6 +115,10 @@ async function onSubmit() {
   success.value = null
   
   track('Lead', {
+    content_name: 'Waitlist Form Submit',
+    content_category: 'waitlist'
+  })
+  trackTt('SubmitForm', {
     content_name: 'Waitlist Form Submit',
     content_category: 'waitlist'
   })

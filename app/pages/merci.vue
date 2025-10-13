@@ -26,6 +26,7 @@
 
 <script lang="ts" setup>
 import { useFacebookPixel } from '~/composables/useFacebookPixel'
+import { useTikTokPixel } from '~/composables/useTikTokPixel'
 import merciMiddleware from '~/middleware/merci'
 
 definePageMeta({
@@ -39,9 +40,16 @@ useSeoMeta({
 })
 
 const { track } = useFacebookPixel()
+const { track: trackTt } = useTikTokPixel()
 
 onMounted(() => {
   track('CompleteRegistration', {
+    content_name: 'Waitlist Signup',
+    status: 'completed',
+    value: 0,
+    currency: 'EUR'
+  })
+  trackTt('CompleteRegistration', {
     content_name: 'Waitlist Signup',
     status: 'completed',
     value: 0,
