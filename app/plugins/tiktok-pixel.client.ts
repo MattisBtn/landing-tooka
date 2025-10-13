@@ -1,6 +1,7 @@
 export default defineNuxtPlugin(() => {
   const config = useRuntimeConfig()
   const pixelId = (config.public as any)?.tiktokPixelId as string | undefined
+  let hasTrackedInitial = false
 
   const loadPixel = () => {
     if (!pixelId || (window as any).ttq?.loaded) return
@@ -60,7 +61,10 @@ export default defineNuxtPlugin(() => {
         }
       }
       ttq.load(pixelId)
-      ttq.page()
+      if (!hasTrackedInitial) {
+        hasTrackedInitial = true
+        ttq.page()
+      }
     })(window, document, 'ttq')
   }
 

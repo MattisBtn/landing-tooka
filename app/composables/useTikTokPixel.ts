@@ -11,7 +11,13 @@ export const useTikTokPixel = () => {
     }
   }
 
-  return { page, track }
+  const identify = (data: Record<string, any>) => {
+    if (import.meta.client && (window as any).ttq) {
+      ;(window as any).ttq.identify(data)
+    }
+  }
+
+  return { page, track, identify }
 }
 
 

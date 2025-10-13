@@ -85,6 +85,7 @@
 <script lang="ts" setup>
 import { useFacebookPixel } from '~/composables/useFacebookPixel'
 import { useTikTokPixel } from '~/composables/useTikTokPixel'
+import { sha256Hex } from '~/utils/crypto'
 
 const email = ref('')
 const loading = ref(false)
@@ -93,7 +94,7 @@ const success = ref<boolean | null>(null)
 const consent = ref(false)
 const isEmailValid = computed(() => !!email.value && email.value.includes('@'))
 const { track } = useFacebookPixel()
-const { track: trackTt } = useTikTokPixel()
+const { track: trackTt, identify: identifyTt } = useTikTokPixel()
 
 watch(email, () => {
   if (!isEmailValid.value) consent.value = false
@@ -114,13 +115,26 @@ async function onSubmit() {
   message.value = ''
   success.value = null
   
+  try {
+    const emailHash = await sha256Hex(email.value)
+    identifyTt({ email: emailHash })
+    sessionStorage.setItem('tt_email_hash', emailHash)
+  } catch {}
+  
   track('Lead', {
     content_name: 'Waitlist Form Submit',
     content_category: 'waitlist'
   })
-  trackTt('SubmitForm', {
-    content_name: 'Waitlist Form Submit',
-    content_category: 'waitlist'
+  trackTt('Lead', {
+    contents: [
+      {
+        content_name: 'Waitlist Form Submit',
+        content_category: 'waitlist'
+      }
+    ],
+    value: 0,
+    currency: 'EUR',
+    status: 'submitted'
   })
   
   try {

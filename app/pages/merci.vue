@@ -40,9 +40,15 @@ useSeoMeta({
 })
 
 const { track } = useFacebookPixel()
-const { track: trackTt } = useTikTokPixel()
+const { track: trackTt, identify: identifyTt } = useTikTokPixel()
 
 onMounted(() => {
+  const emailHash = sessionStorage.getItem('tt_email_hash')
+  if (emailHash) {
+    identifyTt({ email: emailHash })
+    sessionStorage.removeItem('tt_email_hash')
+  }
+  
   track('CompleteRegistration', {
     content_name: 'Waitlist Signup',
     status: 'completed',
@@ -50,8 +56,11 @@ onMounted(() => {
     currency: 'EUR'
   })
   trackTt('CompleteRegistration', {
-    content_name: 'Waitlist Signup',
-    status: 'completed',
+    contents: [
+      {
+        content_name: 'Waitlist Signup'
+      }
+    ],
     value: 0,
     currency: 'EUR'
   })
