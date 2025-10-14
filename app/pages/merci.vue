@@ -61,8 +61,6 @@ onMounted(() => {
         content_name: 'Waitlist Signup'
       }
     ],
-    value: 0,
-    currency: 'EUR'
   })
 })
 </script>

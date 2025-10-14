@@ -132,8 +132,6 @@ async function onSubmit() {
         content_category: 'waitlist'
       }
     ],
-    value: 0,
-    currency: 'EUR',
     status: 'submitted'
   })
   
