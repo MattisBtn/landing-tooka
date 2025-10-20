@@ -11,8 +11,8 @@
                 <NuxtImg src="/images/logo-light.png" alt="Tooka" class="h-8 w-auto" />
               </NuxtLink>
             </div>
-<!-- 
-            <nav class="hidden md:flex items-center justify-center flex-1" aria-label="Navigation principale" role="navigation">
+
+            <nav v-if="false" class="hidden md:flex items-center justify-center flex-1" aria-label="Navigation principale" role="navigation">
               <ul class="flex items-center space-x-8">
                 <li>
                   <a
@@ -51,7 +51,7 @@
                   </a>
                 </li>
               </ul>
-            </nav> -->
+            </nav>
 
             <div class="hidden md:flex items-center justify-end flex-shrink-0" style="width: 120px;">
               <TkButton v-if="showHeaderCta" :to="'#pricing'" variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer">Commencer</TkButton>
@@ -76,8 +76,8 @@
             </div>
           </div>
         </div>
-<!-- 
-        <div v-show="showMobileMenu" class="md:hidden absolute top-full left-0 right-0 mt-2 z-40">
+
+        <div v-if="false" v-show="showMobileMenu" class="md:hidden absolute top-full left-0 right-0 mt-2 z-40">
           <div 
             v-motion="'mobileMenu'"
             :initial="{
@@ -138,7 +138,7 @@
               </div>
             </nav>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
   </header>
