@@ -1,7 +1,7 @@
 <template>
   <div>
     <HeroSection />
-
+<!-- 
     <section class="py-4 md:py-6">
       <div class="mx-auto max-w-6xl px-6">
         <div class="relative perspective-midrange">
@@ -21,7 +21,7 @@
     <ProblemsSection />
     <FeaturesSection />
     <RoadmapSection />
-    <PricingSection />
+    <PricingSection /> -->
   </div>
 </template>
 
