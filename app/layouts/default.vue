@@ -5,8 +5,8 @@
 
     <main id="main" class="pt-24 flex-1">
       <slot />
-      <FaqSection v-if="showFaq" />
-      <CtaSection />
+      <!-- <FaqSection v-if="showFaq" /> -->
+      <!-- <CtaSection /> -->
     </main>
 
     <AppFooter />
@@ -15,8 +15,8 @@
 </template>
 
 <script lang="ts" setup>
-const route = useRoute()
-const showFaq = computed(() => route.meta.showFaq !== false)
+// const route = useRoute()
+// const showFaq = computed(() => route.meta.showFaq !== false)
 </script>
 
 <style scoped>
