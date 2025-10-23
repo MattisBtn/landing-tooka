@@ -13,7 +13,7 @@
               </p>
             </div>
 
-            <nav class="md:col-span-3" aria-label="Navigation">
+            <!-- <nav class="md:col-span-3" aria-label="Navigation">
               <h3 class="text-xs uppercase tracking-wider text-white/50 mb-3">Menu</h3>
               <ul class="space-y-2 text-sm">
                 <li><a href="#problems" class="hover:text-white/90">Problèmes</a></li>
@@ -21,7 +21,7 @@
                 <li><a href="#pricing" class="hover:text-white/90">Tarifs</a></li>
                 <li><a href="#faq" class="hover:text-white/90">FAQ</a></li>
               </ul>
-            </nav>
+            </nav> -->
 
             <nav class="md:col-span-3" aria-label="Légal">
               <h3 class="text-xs uppercase tracking-wider text-white/50 mb-3">Légal</h3>
