@@ -4,4 +4,5 @@
       <NuxtPage />
     </NuxtLayout>
   </UApp>
+  <Analytics/>
 </template>
