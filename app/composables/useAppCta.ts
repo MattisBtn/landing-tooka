@@ -7,7 +7,12 @@ export const useAppCta = () => {
 
   const handleAppAccessCta = (placement: string) => {
     try {
-      trackCustom('AppAccessCTA', { placement, destination: 'app.tooka.io' })
+      trackCustom('AppAccessCTA', {
+        content_name: 'App Access CTA',
+        content_category: 'cta',
+        destination_url: 'https://app.tooka.io',
+        placement
+      })
     } catch {}
     try {
       trackTt('ClickButton', {
