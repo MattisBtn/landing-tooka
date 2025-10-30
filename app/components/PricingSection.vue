@@ -89,7 +89,7 @@
         </div>
 
         <div class="mt-10 flex justify-center">
-          <TkButton href="#hero" size="lg" variant="primary" icon="i-heroicons-arrow-right">
+          <TkButton href="https://app.tooka.io" target="_blank" rel="noopener noreferrer" size="lg" variant="primary" icon="i-heroicons-arrow-right" @click="handleAppAccessCta('pricing')">
             Commencer maintenant
           </TkButton>
         </div>
@@ -111,6 +111,8 @@ type PricingPlan = {
 }
 
 const billingCycle = ref<BillingCycle>('monthly')
+
+const { handleAppAccessCta } = useAppCta()
 
 const plans: PricingPlan[] = [
   {

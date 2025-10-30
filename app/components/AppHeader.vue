@@ -54,7 +54,7 @@
             </nav>
 
             <div class="hidden md:flex items-center justify-end flex-shrink-0" style="width: 120px;">
-              <TkButton v-if="showHeaderCta" :to="'#pricing'" variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer">Commencer</TkButton>
+              <TkButton v-if="showHeaderCta" href="https://app.tooka.io" target="_blank" rel="noopener noreferrer" variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer" @click="handleAppAccessCta('header')">Commencer</TkButton>
             </div>
 
             <div class="md:hidden flex items-center justify-end flex-shrink-0" style="width: 120px;">
@@ -132,7 +132,7 @@
                 :class="[baseMobileLinkClasses, linkIsActive('faq') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
               >FAQ</a>
               <div v-if="showHeaderCta" class="flex flex-col space-y-3 pt-4 border-t border-white/30">
-                <TkButton :to="'#pricing'" variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer">
+                <TkButton href="https://app.tooka.io" target="_blank" rel="noopener noreferrer" variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer" @click="handleAppAccessCta('header')">
                   Commencer
                 </TkButton>
               </div>
@@ -165,6 +165,8 @@ const activeLinkClasses = 'text-slate-900 bg-white/70 backdrop-blur-sm ring-1 ri
 const baseMobileLinkClasses = 'font-medium py-2 px-3 rounded-lg transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/20'
 const hoverMobileLinkClasses = 'text-slate-700 hover:text-slate-900 hover:bg-white/70 hover:backdrop-blur-sm hover:ring-1 hover:ring-white/40'
 const activeMobileLinkClasses = 'text-slate-900 bg-white/70 backdrop-blur-sm ring-1 ring-white/50'
+
+const { handleAppAccessCta } = useAppCta()
 
 function linkIsActive(id: string) {
   return activeSectionId.value === id
