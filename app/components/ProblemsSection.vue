@@ -16,7 +16,7 @@
           <div class="relative z-10 flex flex-row md:flex-col items-center md:text-center text-left gap-4 md:gap-0 p-4 md:p-6">
           <NuxtImg
             src="/images/gagner-du-temps.png"
-            alt="Gagner du temps"
+            alt="Icône représentant un chronomètre symbolisant le gain de temps"
             class="h-16 w-16 md:h-24 md:w-24 object-contain shrink-0"
             loading="lazy"
           />
@@ -33,7 +33,7 @@
           <div class="relative z-10 flex flex-row md:flex-col items-center md:text-center text-left gap-4 md:gap-0 p-4 md:p-6">
           <NuxtImg
             src="/images/gagner-de-l-argent.png"
-            alt="Gagner de l'argent"
+            alt="Icône représentant une tirelire symbolisant l'augmentation des revenus"
             class="h-16 w-16 md:h-24 md:w-24 object-contain shrink-0"
             loading="lazy"
           />
@@ -50,7 +50,7 @@
           <div class="relative z-10 flex flex-row md:flex-col items-center md:text-center text-left gap-4 md:gap-0 p-4 md:p-6">
           <NuxtImg
             src="/images/paraitre-plus-pro.png"
-            alt="Paraître plus pro"
+            alt="Icône représentant une étoile symbolisant le professionnalisme"
             class="h-16 w-16 md:h-24 md:w-24 object-contain shrink-0"
             loading="lazy"
           />

@@ -7,8 +7,8 @@
           <span class="pointer-events-none absolute -bottom-10 left-1/2 h-20 w-3/4 -translate-x-1/2 rounded-full bg-black/10 blur-2xl"></span>
           <div class="flex items-center pl-6 pr-3 py-2 w-full justify-between">
             <div class="flex-shrink-0" style="width: 120px;">
-              <NuxtLink to="/" aria-label="Accueil">
-                <NuxtImg src="/images/logo-light.png" alt="Tooka" class="h-8 w-auto" />
+              <NuxtLink to="/" aria-label="Retour à l'accueil Tooka">
+                <NuxtImg src="/images/logo-light.png" alt="Logo Tooka" class="h-8 w-auto" />
               </NuxtLink>
             </div>
 
@@ -65,7 +65,7 @@
                 :aria-expanded="mobileMenuOpen ? 'true' : 'false'"
                 aria-haspopup="true"
                 aria-controls="mobile-nav"
-                aria-label="Ouvrir le menu"
+                :aria-label="mobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
                 @click="toggleMobileMenu"
                 icon-only
               >

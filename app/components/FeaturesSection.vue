@@ -56,16 +56,16 @@
           <div>
             <h3 class="text-2xl md:text-3xl font-bold text-slate-900">{{ activeItem.title }}</h3>
             <p class="mt-4 text-slate-600">{{ activeItem.description }}</p>
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span
+            <ul class="mt-6 flex flex-wrap gap-2" role="list" aria-label="Points clés">
+              <li
                 v-for="point in activeItem.points"
                 :key="point"
                 class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-sm text-slate-800 bg-white/70 backdrop-blur-2xl ring-1 ring-white/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),_0_8px_16px_-4px_rgba(0,0,0,0.15)] relative before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-b before:from-white/60 before:to-transparent before:pointer-events-none"
               >
-                <span class="h-1.5 w-1.5 rounded-full bg-slate-400"></span>
+                <span class="h-1.5 w-1.5 rounded-full bg-slate-400" aria-hidden="true"></span>
                 {{ point }}
-              </span>
-            </div>
+              </li>
+            </ul>
           </div>
 
           <div 
@@ -109,12 +109,12 @@ const items: FeatureItem[] = [
     title: 'Pilotez votre activité photo en temps réel.',
     description: 'Revenus, projets signés, délais… tout est suivi dans un tableau de bord simple et actionnable.',
     points: [
-      '📈 Indicateurs clés pour progresser',
-      '🔎 Vue claire de votre activité',
-      '⏱️ Délais maîtrisés'
+      'Indicateurs clés pour progresser',
+      'Vue claire de votre activité',
+      'Délais maîtrisés'
     ],
     imageSrc: '/images/features/dashboard-kpi.png',
-    imageAlt: 'Tableau de bord Tooka avec KPI'
+    imageAlt: 'Interface du tableau de bord avec graphiques de revenus, projets signés et statistiques en temps réel'
   },
   {
     key: 'propositions',
@@ -122,12 +122,12 @@ const items: FeatureItem[] = [
     title: 'Faites la différence dès la première proposition.',
     description: 'Offrez une expérience professionnelle dès le devis, et transformez plus de prospects en clients.',
     points: [
-      '✍️ Signature électronique intégrée',
-      '🎯 Propositions visuelles et personnalisées',
-      '💳 Paiement d\'acompte en ligne'
+      'Signature électronique intégrée',
+      'Propositions visuelles et personnalisées',
+      'Paiement d\'acompte en ligne'
     ],
     imageSrc: '/images/features/propositions.png',
-    imageAlt: 'Interface de propositions Tooka'
+    imageAlt: 'Exemple de proposition commerciale avec options de prestations, signature électronique et paiement en ligne'
   },
   {
     key: 'moodboard',
@@ -135,25 +135,25 @@ const items: FeatureItem[] = [
     title: 'Co-créez vos shootings avec vos clients.',
     description: 'Un moodboard vivant où chacun peut partager des visuels, commenter, liker et valider — pour une vision claire dès le départ.',
     points: [
-      '📤 Uploads faciles côté client',
-      '💬 Réactions & commentaires intégrés',
-      '🔎 Transparence totale du process'
+      'Uploads faciles côté client',
+      'Réactions et commentaires intégrés',
+      'Transparence totale du process'
     ],
     imageSrc: '/images/features/moodboard.png',
-    imageAlt: 'Moodboard Tooka'
+    imageAlt: 'Interface moodboard collaborative avec galerie d\'images, système de likes et commentaires pour co-créer avec les clients'
   },
   {
     key: 'selection',
     label: 'Sélection',
-    title: '📸 Sélection intelligente, plus simple et plus rentable.',
+    title: 'Sélection intelligente, plus simple et plus rentable.',
     description: 'Vos clients choisissent leurs photos directement en ligne, téléchargent même les RAW, et chaque sélection devient une opportunité de vendre plus.',
     points: [
-      '📂 Support des RAW',
-      '💸 Augmentez vos revenus → upsell d\'images en un clic',
-      '⏱️ Gagnez du temps → sélection fluide, zéro allers-retours'
+      'Support des RAW',
+      'Augmentez vos revenus avec l\'upsell d\'images en un clic',
+      'Gagnez du temps avec une sélection fluide, zéro allers-retours'
     ],
     imageSrc: '/images/features/selection.png',
-    imageAlt: 'Interface de sélection Tooka'
+    imageAlt: 'Interface de sélection de photos avec aperçu des images, options d\'achat et téléchargement des fichiers RAW'
   },
   {
     key: 'galerie',
@@ -161,12 +161,12 @@ const items: FeatureItem[] = [
     title: 'La galerie qui simplifie vos échanges et vos paiements.',
     description: 'Plus besoin d\'allers-retours : tout est géré dans la galerie — sélection, paiement et validation finale.',
     points: [
-      '💸 Paiements fluides et rapides',
-      '🌟 Expérience premium pour vos clients',
-      '🚀 Livraison déclenchée à la validation'
+      'Paiements fluides et rapides',
+      'Expérience premium pour vos clients',
+      'Livraison déclenchée à la validation'
     ],
     imageSrc: '/images/features/galerie.png',
-    imageAlt: 'Galerie Tooka avec médias'
+    imageAlt: 'Galerie photo professionnelle avec système de paiement intégré et téléchargement haute résolution'
   },
 
 ]

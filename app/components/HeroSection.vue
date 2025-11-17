@@ -39,22 +39,22 @@
         </TkButton>
       </div>
 
-      <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-slate-500 animate-fade-in-up" style="animation-delay: 300ms;">
-        <div class="flex items-center gap-2">
-          <UIcon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500" />
+      <ul class="mt-6 sm:mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs sm:text-sm text-slate-500 animate-fade-in-up" style="animation-delay: 300ms;" role="list" aria-label="Avantages Tooka">
+        <li class="flex items-center gap-1.5">
+          <UIcon name="i-heroicons-check-circle-solid" class="w-4 h-4 sm:w-5 sm:h-5 text-green-500 shrink-0" aria-hidden="true" />
           <span>Sans engagement</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <UIcon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500" />
+        </li>
+        <li class="flex items-center gap-1.5">
+          <UIcon name="i-heroicons-check-circle-solid" class="w-4 h-4 sm:w-5 sm:h-5 text-green-500 shrink-0" aria-hidden="true" />
           <span>Accès prioritaire</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <UIcon name="i-heroicons-check-circle-solid" class="w-5 h-5 text-green-500" />
+        </li>
+        <li class="flex items-center gap-1.5">
+          <UIcon name="i-heroicons-check-circle-solid" class="w-4 h-4 sm:w-5 sm:h-5 text-green-500 shrink-0" aria-hidden="true" />
           <span>+200 photographes inscrits</span>
-        </div>
-      </div>
+        </li>
+      </ul>
 
-      <div class="mt-12 flex justify-center animate-fade-in-up" style="animation-delay: 400ms;">
+      <div class="mt-6 sm:mt-10 flex justify-center animate-fade-in-up" style="animation-delay: 400ms;">
         <TkSocialProof />
       </div>
     </div>

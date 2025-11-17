@@ -20,7 +20,8 @@
       :disabled="disabled"
       :placeholder="placeholder"
       :value="modelValue"
-      :aria-label="ariaLabel"
+      :aria-label="ariaLabel || placeholder"
+      :required="cleanedAttrs.required"
       class="w-full bg-transparent outline-none border-none placeholder-slate-400 text-current"
       @input="onInput"
     />

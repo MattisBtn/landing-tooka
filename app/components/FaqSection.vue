@@ -27,6 +27,7 @@
             type="button"
             class="relative z-10 w-full px-6 py-5 text-left flex items-center justify-between gap-4 group"
             :aria-expanded="openIndex === idx ? 'true' : 'false'"
+            :aria-controls="`faq-answer-${idx}`"
             @click="toggle(idx)"
           >
             <span class="text-slate-900 text-base md:text-lg font-bold group-hover:text-slate-700 transition-colors">{{ item.q }}</span>
@@ -47,7 +48,12 @@
             leave-from-class="opacity-100 translate-y-0"
             leave-to-class="opacity-0 -translate-y-1"
           >
-            <div v-show="openIndex === idx" class="relative text-sm md:text-base z-10 px-6 pb-6 pt-0 text-slate-600 leading-relaxed" v-html="item.a.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')">
+            <div 
+              v-show="openIndex === idx" 
+              :id="`faq-answer-${idx}`"
+              class="relative text-sm md:text-base z-10 px-6 pb-6 pt-0 text-slate-600 leading-relaxed" 
+              v-html="item.a.replace(/\n\n/g, '<br><br>').replace(/\n/g, '<br>')"
+            >
             </div>
           </transition>
         </div>

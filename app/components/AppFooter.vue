@@ -5,8 +5,8 @@
         <div class="space-y-8">
           <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
             <div class="md:col-span-6">
-              <NuxtLink to="/" aria-label="Accueil">
-                <NuxtImg src="/images/logo-dark.png" alt="Tooka" class="h-8 w-auto" />
+              <NuxtLink to="/" aria-label="Retour à l'accueil Tooka">
+                <NuxtImg src="/images/logo-dark.png" alt="Logo Tooka" class="h-8 w-auto" />
               </NuxtLink>
               <p class="mt-4 text-sm/6 text-white/70 max-w-md">
                 La plateforme qui accompagne les créatifs du brief initial à la livraison finale.
@@ -38,7 +38,7 @@
               <TkButton
                 variant="secondary"
                 size="sm"
-                aria-label="Instagram"
+                aria-label="Suivez-nous sur Instagram"
                 href="https://instagram.com/tooka.io"
                 target="_blank"
                 rel="noopener noreferrer"
