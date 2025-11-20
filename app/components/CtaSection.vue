@@ -17,7 +17,7 @@
           </p>
 
           <div class="mt-8">
-            <TkButton href="https://app.tooka.io" target="_blank" rel="noopener noreferrer" size="lg" variant="primary" icon="i-heroicons-arrow-right" @click="handleAppAccessCta('cta-section')">
+            <TkButton href="https://app.tooka.io/register" target="_blank" rel="noopener noreferrer" size="lg" variant="primary" icon="i-heroicons-arrow-right" @click="handleAppAccessCta('cta-section')">
               Commencer gratuitement
             </TkButton>
           </div>

@@ -77,7 +77,7 @@
                         <div v-else class="text-xs text-slate-500">HT</div>
                       </div>
                       <TkButton
-                        href="https://app.tooka.io"
+                        href="https://app.tooka.io/register"
                         target="_blank"
                         rel="noopener noreferrer"
                         size="sm"

@@ -26,7 +26,7 @@
 
       <div class="mt-12 max-w-xl mx-auto animate-fade-in-up" style="animation-delay: 200ms;">
         <TkButton
-          href="https://app.tooka.io"
+          href="https://app.tooka.io/register"
           target="_blank"
           rel="noopener noreferrer"
           size="lg"

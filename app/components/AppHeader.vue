@@ -54,7 +54,7 @@
             </nav>
 
             <div class="hidden md:flex items-center justify-end flex-shrink-0" style="width: 120px;">
-              <TkButton v-if="showHeaderCta" href="https://app.tooka.io" target="_blank" rel="noopener noreferrer" variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer" @click="handleAppAccessCta('header')">Commencer</TkButton>
+              <TkButton v-if="showHeaderCta" href="https://app.tooka.io/register" target="_blank" rel="noopener noreferrer" variant="primary" size="sm" icon="i-heroicons-arrow-right" aria-label="Commencer" @click="handleAppAccessCta('header')">Commencer</TkButton>
             </div>
 
             <div class="md:hidden flex items-center justify-end flex-shrink-0" style="width: 120px;">
@@ -132,7 +132,7 @@
                 :class="[baseMobileLinkClasses, linkIsActive('faq') ? activeMobileLinkClasses : hoverMobileLinkClasses]"
               >FAQ</a>
               <div v-if="showHeaderCta" class="flex flex-col space-y-3 pt-4 border-t border-white/30">
-                <TkButton href="https://app.tooka.io" target="_blank" rel="noopener noreferrer" variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer" @click="handleAppAccessCta('header')">
+                <TkButton href="https://app.tooka.io/register" target="_blank" rel="noopener noreferrer" variant="primary" size="md" block icon="i-heroicons-arrow-right" class="justify-start" aria-label="Commencer" @click="handleAppAccessCta('header')">
                   Commencer
                 </TkButton>
               </div>

@@ -63,7 +63,7 @@
 
       </div>
       <div class="flex w-full justify-center mt-12">
-        <TkButton href="https://app.tooka.io" target="_blank" rel="noopener noreferrer" size="lg" variant="primary" icon="i-heroicons-arrow-right" @click="handleAppAccessCta('problems')">Commencer maintenant</TkButton>
+        <TkButton href="https://app.tooka.io/register" target="_blank" rel="noopener noreferrer" size="lg" variant="primary" icon="i-heroicons-arrow-right" @click="handleAppAccessCta('problems')">Commencer maintenant</TkButton>
         </div>
     </div>
   </section>
